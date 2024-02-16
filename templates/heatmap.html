@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mappa di calore dei casi di crimine a Roma</title>
+    <style>
+        body, html, #map {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mappa di calore dei casi di crimine a Roma</h1>
+    <p>Visualizzazione della mappa di calore con i casi di crimine a Roma:</p>
+    <iframe id="map_heatmap" src="{{ url_for('static', filename='map_heatmap.html') }}"></iframe>
+</body>
+</html>

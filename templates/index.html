@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mappa degli eventi criminali a Roma</title>
+    <style>
+        body, html, #map {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mappa degli eventi criminali a Roma</h1>
+    <p>Visualizzazione della mappa con i casi di crimine a Roma:</p>
+    <iframe id="map" src="{{ url_for('static', filename='map.html') }}"></iframe>
+</body>
+</html>

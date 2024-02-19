@@ -184,7 +184,7 @@ def home():
     }  
 
 
-      # Imposta min_opacity per mantenere la heatmap costante durante lo zoom
+      # Imposta min_opacity per mantenere la heatmap costante durante lo zoom (edited)
     min_opacity = 0.5
 
     # Imposta il blur per una transizione piu graduale tra i punti della heatmap

@@ -5,9 +5,7 @@ from folium.plugins import HeatMap
 
 
 
-app = Flask(__name__)
-
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static2')
 
 @app.route('/')
 def home():
@@ -225,11 +223,11 @@ def home():
 
     
     # Salva la mappa di Folium come HTML
-    m.save('C:/File PY/static2/map.html')
+    m.save('static2/map.html')
 
 
     # Salva la mappa di Folium come HTML con un parametro casuale
-    m.save(f'C:/File PY/static2/map_{random_number}.html')
+    m.save(f'static2/map_{random_number}.html')
 
     # Rendi la mappa disponibile nella pagina HTML
     return render_template('index.html')

@@ -1,1 +1,1 @@
-web: gunicorn main29:app 
+web: gunicorn main29:app

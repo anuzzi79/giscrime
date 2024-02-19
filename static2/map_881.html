@@ -1,0 +1,3294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_39e7cc2fb206a7c2fc2605ee3d66c09d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+    <script>
+        function update_radius() {
+           var zoom = map.getZoom();
+            heatmapLayer.setOptions({radius: zoom * 2});
+        }
+
+        var map = document.querySelector('.folium-map');
+        var heatmapLayer = map._layers[Object.keys(map._layers)[1]];
+
+        map.addEventListener('zoomend', update_radius);
+        update_radius();
+    </script>
+    
+    
+            <div class="folium-map" id="map_39e7cc2fb206a7c2fc2605ee3d66c09d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_39e7cc2fb206a7c2fc2605ee3d66c09d = L.map(
+                "map_39e7cc2fb206a7c2fc2605ee3d66c09d",
+                {
+                    center: [41.9028, 12.4964],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1ecc25eb92024e35677d043458f5eaee = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_1ecc25eb92024e35677d043458f5eaee.addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+            var heat_map_7db1e0257d4c17ac29a93ad7037807fe = L.heatLayer(
+                [[41.8736, 12.4834], [41.8933, 12.4911], [41.9022, 12.4809], [41.9073, 12.4885], [41.9024, 12.4964], [41.8919, 12.4874], [41.8692, 12.4849], [41.8861, 12.4674], [41.9105, 12.5345], [41.9136, 12.4993], [41.9271, 12.4834], [41.8519, 12.4973], [41.9093, 12.4662], [41.9138, 12.5161], [41.8525, 12.4671], [41.8989, 12.5458], [41.8496, 12.4788], [41.8602, 12.4769], [41.9023, 12.4545], [41.9007, 12.4881], [41.8959, 12.4686], [41.9067, 12.4815], [41.9061, 12.4801], [41.8963, 12.4657], [41.8998, 12.4709], [41.8933, 12.4722], [41.8944, 12.4718], [41.9105, 12.4768], [41.9021, 12.4833], [41.9002, 12.4961], [41.8843, 12.5012], [41.8762, 12.5234], [41.8992, 12.4735], [41.8956, 12.4822], [41.9059, 12.4828], [41.8796, 12.4671], [41.9012, 12.4597], [41.9243, 12.4918], [41.9097, 12.5102], [41.8911, 12.4883], [41.9021, 12.4549], [41.8948, 12.4643], [41.9076, 12.4799], [41.8987, 12.4708], [41.9008, 12.4845], [41.8992, 12.4968], [41.8862, 12.5034], [41.8984, 12.4261], [41.9712, 12.4195], [41.9002, 12.4885], [41.9063, 12.4873], [41.9062, 12.4829], [41.9078, 12.4819], [41.9065, 12.4802], [41.9071, 12.4806], [41.8969, 12.4681], [41.8936, 12.4729], [41.8917, 12.4742], [41.8919, 12.4768], [41.8944, 12.4785], [41.8956, 12.4698], [41.8993, 12.4767], [41.8987, 12.4778], [41.8982, 12.4739], [41.8996, 12.4795], [41.9011, 12.4802], [41.8962, 12.4833], [41.9108, 12.4764], [41.9056, 12.4829], [41.9017, 12.4958], [41.9036, 12.4886], [41.8959, 12.4827], [41.8998, 12.4765], [41.8981, 12.4736], [41.9061, 12.4825], [41.9103, 12.4761], [41.8962, 12.4711], [41.9009, 12.4804], [41.8995, 12.4799], [41.8958, 12.4829], [41.9021, 12.4956], [41.9037, 12.4884], [41.8922, 12.4826], [41.8988, 12.4775], [41.8983, 12.4741], [41.9063, 12.4831], [41.9106, 12.4763], [41.8961, 12.4715], [41.901, 12.48], [41.8997, 12.4803], [41.8957, 12.4828], [41.9022, 12.4957], [41.9038, 12.4882], [41.8923, 12.4827], [41.8987, 12.4774], [41.8984, 12.474], [41.9064, 12.483], [41.9105, 12.4762], [41.896, 12.4716], [41.9009, 12.4801], [41.8996, 12.4804], [41.8956, 12.4827], [41.9021, 12.4955], [41.9037, 12.4883], [41.8921, 12.4825], [41.8986, 12.4776], [41.8985, 12.4742], [41.9062, 12.4829], [41.9104, 12.4764], [41.8962, 12.4714], [41.9008, 12.4803], [41.8994, 12.4805], [41.8955, 12.4828], [41.902, 12.4954], [41.9036, 12.4885], [41.8924, 12.4828], [41.8989, 12.4773], [41.8982, 12.4743], [41.9061, 12.4831], [41.9103, 12.4765], [41.8963, 12.4713], [41.9007, 12.4802], [41.8993, 12.4806], [41.8954, 12.4829], [41.9019, 12.4953], [41.9035, 12.4884], [41.8925, 12.4829], [41.899, 12.4772], [41.8983, 12.4744], [41.906, 12.4832], [41.9102, 12.4766], [41.8964, 12.4712], [41.9006, 12.4801], [41.8992, 12.4807], [41.8953, 12.4829], [41.9018, 12.4952], [41.9034, 12.4883], [41.8926, 12.483], [41.8991, 12.4771], [41.8984, 12.4745], [41.9059, 12.4833], [41.9101, 12.4767], [41.8965, 12.4711], [41.9005, 12.48], [41.8991, 12.4808], [41.8952, 12.4829], [41.9017, 12.4951], [41.9033, 12.4882], [41.8927, 12.4831], [41.8992, 12.477], [41.8985, 12.4746], [41.9058, 12.4834]],
+                {"blur": 15, "maxZoom": 18, "minOpacity": 0.5, "radius": 50}
+            );
+        
+    
+            heat_map_7db1e0257d4c17ac29a93ad7037807fe.addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+            var marker_c76fa189fdc099e2cfaf8cc2dfc2c68a = L.marker(
+                [41.8736, 12.4834],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_28854ec5869a1d16f70984dfbcdb6706 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_db4e80b0fd4751ce6f6252eb0d75a7ee = $(`<div id="html_db4e80b0fd4751ce6f6252eb0d75a7ee" style="width: 100.0%; height: 100.0%;">Via Appia Nuova - Furto</div>`)[0];
+                popup_28854ec5869a1d16f70984dfbcdb6706.setContent(html_db4e80b0fd4751ce6f6252eb0d75a7ee);
+            
+        
+
+        marker_c76fa189fdc099e2cfaf8cc2dfc2c68a.bindPopup(popup_28854ec5869a1d16f70984dfbcdb6706)
+        ;
+
+        
+    
+    
+            var marker_86b4de68ec8ad8de838946ea631f10e2 = L.marker(
+                [41.8933, 12.4911],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_b1419e853a4615ceb342aeaef334afb9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_601e79bf0a56eeda01073d5c94f4473b = $(`<div id="html_601e79bf0a56eeda01073d5c94f4473b" style="width: 100.0%; height: 100.0%;">Via Cavour - Omicidio</div>`)[0];
+                popup_b1419e853a4615ceb342aeaef334afb9.setContent(html_601e79bf0a56eeda01073d5c94f4473b);
+            
+        
+
+        marker_86b4de68ec8ad8de838946ea631f10e2.bindPopup(popup_b1419e853a4615ceb342aeaef334afb9)
+        ;
+
+        
+    
+    
+            var marker_0284f3f8f848f2ee8f06c904f24e50c8 = L.marker(
+                [41.9022, 12.4809],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_f49cdb67cf54ceb9d9d4a6135ae29345 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_719bb1dc7791191d233f3b6c91de7ee6 = $(`<div id="html_719bb1dc7791191d233f3b6c91de7ee6" style="width: 100.0%; height: 100.0%;">Via del Corso - Aggressione</div>`)[0];
+                popup_f49cdb67cf54ceb9d9d4a6135ae29345.setContent(html_719bb1dc7791191d233f3b6c91de7ee6);
+            
+        
+
+        marker_0284f3f8f848f2ee8f06c904f24e50c8.bindPopup(popup_f49cdb67cf54ceb9d9d4a6135ae29345)
+        ;
+
+        
+    
+    
+            var marker_5bf72cb6058b88e77dcf3ec400180b79 = L.marker(
+                [41.9073, 12.4885],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_3434105f8fdd005e373262808271903f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a5ce8e0c16d1a42213c2fc961df0f4a7 = $(`<div id="html_a5ce8e0c16d1a42213c2fc961df0f4a7" style="width: 100.0%; height: 100.0%;">Via Veneto - Furto</div>`)[0];
+                popup_3434105f8fdd005e373262808271903f.setContent(html_a5ce8e0c16d1a42213c2fc961df0f4a7);
+            
+        
+
+        marker_5bf72cb6058b88e77dcf3ec400180b79.bindPopup(popup_3434105f8fdd005e373262808271903f)
+        ;
+
+        
+    
+    
+            var marker_66f5ff48662361fe6b3afbda5b116d44 = L.marker(
+                [41.9024, 12.4964],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_b317256891248d4c7d766048de11d141 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a80e68442c3cd338fdae32ddef799168 = $(`<div id="html_a80e68442c3cd338fdae32ddef799168" style="width: 100.0%; height: 100.0%;">Via Nazionale - Furto</div>`)[0];
+                popup_b317256891248d4c7d766048de11d141.setContent(html_a80e68442c3cd338fdae32ddef799168);
+            
+        
+
+        marker_66f5ff48662361fe6b3afbda5b116d44.bindPopup(popup_b317256891248d4c7d766048de11d141)
+        ;
+
+        
+    
+    
+            var marker_c6baa0322283d5abc05e10f2029b823c = L.marker(
+                [41.8919, 12.4874],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_9b98af67c1fcc3009c72042b4566e1d2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d63d6e71c456a1df9fd3ba1cf6909632 = $(`<div id="html_d63d6e71c456a1df9fd3ba1cf6909632" style="width: 100.0%; height: 100.0%;">Via dei Fori Imperiali - Aggressione</div>`)[0];
+                popup_9b98af67c1fcc3009c72042b4566e1d2.setContent(html_d63d6e71c456a1df9fd3ba1cf6909632);
+            
+        
+
+        marker_c6baa0322283d5abc05e10f2029b823c.bindPopup(popup_9b98af67c1fcc3009c72042b4566e1d2)
+        ;
+
+        
+    
+    
+            var marker_902dd95719eed6fe0d614d78dc8cc86d = L.marker(
+                [41.8692, 12.4849],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_059841f28b9fd1de53aeca348d4b64c4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_947bdc9f3dc907726f355bc47b16aae3 = $(`<div id="html_947bdc9f3dc907726f355bc47b16aae3" style="width: 100.0%; height: 100.0%;">Via Ostiense - Furto</div>`)[0];
+                popup_059841f28b9fd1de53aeca348d4b64c4.setContent(html_947bdc9f3dc907726f355bc47b16aae3);
+            
+        
+
+        marker_902dd95719eed6fe0d614d78dc8cc86d.bindPopup(popup_059841f28b9fd1de53aeca348d4b64c4)
+        ;
+
+        
+    
+    
+            var marker_eab2a01f8a31d2ca3bdd494bac1036eb = L.marker(
+                [41.8861, 12.4674],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_57b5a549b5e6b35f5f48a0b56edf22e3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5aab1a80f349c3c147319d8b9f234c5c = $(`<div id="html_5aab1a80f349c3c147319d8b9f234c5c" style="width: 100.0%; height: 100.0%;">Viale Trastevere - Omicidio</div>`)[0];
+                popup_57b5a549b5e6b35f5f48a0b56edf22e3.setContent(html_5aab1a80f349c3c147319d8b9f234c5c);
+            
+        
+
+        marker_eab2a01f8a31d2ca3bdd494bac1036eb.bindPopup(popup_57b5a549b5e6b35f5f48a0b56edf22e3)
+        ;
+
+        
+    
+    
+            var marker_1c0c42996bbcfedbe82e304333e2af11 = L.marker(
+                [41.9105, 12.5345],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_880865acd5464b050d2aeb49113ba1bb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_387dd26020588ec332e16d3ce7145eaa = $(`<div id="html_387dd26020588ec332e16d3ce7145eaa" style="width: 100.0%; height: 100.0%;">Via Tiburtina - Furto</div>`)[0];
+                popup_880865acd5464b050d2aeb49113ba1bb.setContent(html_387dd26020588ec332e16d3ce7145eaa);
+            
+        
+
+        marker_1c0c42996bbcfedbe82e304333e2af11.bindPopup(popup_880865acd5464b050d2aeb49113ba1bb)
+        ;
+
+        
+    
+    
+            var marker_2d21ddf1654719606f6850e2a70c80ec = L.marker(
+                [41.9136, 12.4993],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_e91fe2b0b5e707933a76377dcf902837 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_306e7863557591d94e9b195d6bfc16dd = $(`<div id="html_306e7863557591d94e9b195d6bfc16dd" style="width: 100.0%; height: 100.0%;">Via Salaria - Omicidio</div>`)[0];
+                popup_e91fe2b0b5e707933a76377dcf902837.setContent(html_306e7863557591d94e9b195d6bfc16dd);
+            
+        
+
+        marker_2d21ddf1654719606f6850e2a70c80ec.bindPopup(popup_e91fe2b0b5e707933a76377dcf902837)
+        ;
+
+        
+    
+    
+            var marker_ebd45db763bb38f90d85b5ffdf45979d = L.marker(
+                [41.9271, 12.4834],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_a80b46699d66f5618b233517543b93cb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3cc2977bb65dbff6505a492e7f1bb9a3 = $(`<div id="html_3cc2977bb65dbff6505a492e7f1bb9a3" style="width: 100.0%; height: 100.0%;">Via Flaminia - Furto</div>`)[0];
+                popup_a80b46699d66f5618b233517543b93cb.setContent(html_3cc2977bb65dbff6505a492e7f1bb9a3);
+            
+        
+
+        marker_ebd45db763bb38f90d85b5ffdf45979d.bindPopup(popup_a80b46699d66f5618b233517543b93cb)
+        ;
+
+        
+    
+    
+            var marker_dc2afc7249f7941931ce0b5ec840c9b9 = L.marker(
+                [41.8519, 12.4973],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_df4e4896bd423118f7d3d3e2c8cc33ca = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_db0a5b190c60b84d656833d0052adeb7 = $(`<div id="html_db0a5b190c60b84d656833d0052adeb7" style="width: 100.0%; height: 100.0%;">Via Appia Antica - Aggressione</div>`)[0];
+                popup_df4e4896bd423118f7d3d3e2c8cc33ca.setContent(html_db0a5b190c60b84d656833d0052adeb7);
+            
+        
+
+        marker_dc2afc7249f7941931ce0b5ec840c9b9.bindPopup(popup_df4e4896bd423118f7d3d3e2c8cc33ca)
+        ;
+
+        
+    
+    
+            var marker_9c4b5f05c3c2aa21c6b8aa284c0857ea = L.marker(
+                [41.9093, 12.4662],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_22f00c2c66a979a64041ef337b70fe1b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_da1d68d15bc309fff029e1f416460150 = $(`<div id="html_da1d68d15bc309fff029e1f416460150" style="width: 100.0%; height: 100.0%;">Viale delle Milizie - Furto</div>`)[0];
+                popup_22f00c2c66a979a64041ef337b70fe1b.setContent(html_da1d68d15bc309fff029e1f416460150);
+            
+        
+
+        marker_9c4b5f05c3c2aa21c6b8aa284c0857ea.bindPopup(popup_22f00c2c66a979a64041ef337b70fe1b)
+        ;
+
+        
+    
+    
+            var marker_d4410ab4105093682df7b2748637fdb4 = L.marker(
+                [41.9138, 12.5161],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_252e7f704a23b8a35c1c302a2997641a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_173320520c5b3c24f6617eee16a1eee0 = $(`<div id="html_173320520c5b3c24f6617eee16a1eee0" style="width: 100.0%; height: 100.0%;">Viale Regina Margherita - Furto</div>`)[0];
+                popup_252e7f704a23b8a35c1c302a2997641a.setContent(html_173320520c5b3c24f6617eee16a1eee0);
+            
+        
+
+        marker_d4410ab4105093682df7b2748637fdb4.bindPopup(popup_252e7f704a23b8a35c1c302a2997641a)
+        ;
+
+        
+    
+    
+            var marker_dfa2f56fae11d0aa82cb146dea17f530 = L.marker(
+                [41.8525, 12.4671],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_797c3d71aa32b92577ef23757a4d32ac = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cac25eaedc2ac4a501039c5bee21af55 = $(`<div id="html_cac25eaedc2ac4a501039c5bee21af55" style="width: 100.0%; height: 100.0%;">Viale Guglielmo Marconi - Omicidio</div>`)[0];
+                popup_797c3d71aa32b92577ef23757a4d32ac.setContent(html_cac25eaedc2ac4a501039c5bee21af55);
+            
+        
+
+        marker_dfa2f56fae11d0aa82cb146dea17f530.bindPopup(popup_797c3d71aa32b92577ef23757a4d32ac)
+        ;
+
+        
+    
+    
+            var marker_e378b21a75c0928a23748e59e871aa6c = L.marker(
+                [41.8989, 12.5458],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_4eb7f33e4c7d840dea9d6828233c4a79 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_16c0be7cdedb4ea266b759ffa260e203 = $(`<div id="html_16c0be7cdedb4ea266b759ffa260e203" style="width: 100.0%; height: 100.0%;">Viale Palmiro Togliatti - Furto</div>`)[0];
+                popup_4eb7f33e4c7d840dea9d6828233c4a79.setContent(html_16c0be7cdedb4ea266b759ffa260e203);
+            
+        
+
+        marker_e378b21a75c0928a23748e59e871aa6c.bindPopup(popup_4eb7f33e4c7d840dea9d6828233c4a79)
+        ;
+
+        
+    
+    
+            var marker_2d878ccb377f2b986cda292defa31fd6 = L.marker(
+                [41.8496, 12.4788],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_048a0662d14e7b2189fa379ea2018d3a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9c799ae17de70528e6a67efc77c6d155 = $(`<div id="html_9c799ae17de70528e6a67efc77c6d155" style="width: 100.0%; height: 100.0%;">Via Cristoforo Colombo - Aggressione</div>`)[0];
+                popup_048a0662d14e7b2189fa379ea2018d3a.setContent(html_9c799ae17de70528e6a67efc77c6d155);
+            
+        
+
+        marker_2d878ccb377f2b986cda292defa31fd6.bindPopup(popup_048a0662d14e7b2189fa379ea2018d3a)
+        ;
+
+        
+    
+    
+            var marker_d71f323df5a3cc4a49010a1dd0cbdb4f = L.marker(
+                [41.8602, 12.4769],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_961d7c78001ff52e891f631dcdd23446 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ad4d1938f38229bcd4299c7482051376 = $(`<div id="html_ad4d1938f38229bcd4299c7482051376" style="width: 100.0%; height: 100.0%;">Viale dei Romagnoli - Furto</div>`)[0];
+                popup_961d7c78001ff52e891f631dcdd23446.setContent(html_ad4d1938f38229bcd4299c7482051376);
+            
+        
+
+        marker_d71f323df5a3cc4a49010a1dd0cbdb4f.bindPopup(popup_961d7c78001ff52e891f631dcdd23446)
+        ;
+
+        
+    
+    
+            var marker_d7950c8b0829e905f10db343ece21249 = L.marker(
+                [41.9023, 12.4545],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_879407e9aa76f511e2865daf1a6ab9f9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3c506235abffc6b4062d029d525b2bb9 = $(`<div id="html_3c506235abffc6b4062d029d525b2bb9" style="width: 100.0%; height: 100.0%;">Via della Conciliazione - Omicidio</div>`)[0];
+                popup_879407e9aa76f511e2865daf1a6ab9f9.setContent(html_3c506235abffc6b4062d029d525b2bb9);
+            
+        
+
+        marker_d7950c8b0829e905f10db343ece21249.bindPopup(popup_879407e9aa76f511e2865daf1a6ab9f9)
+        ;
+
+        
+    
+    
+            var marker_514c25bc13b57510bd449d52699fcc91 = L.marker(
+                [41.9007, 12.4881],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_0a6dc8be88927fb847d34f65b1e2653d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e0cb38cfb2653957f39534007154bbca = $(`<div id="html_e0cb38cfb2653957f39534007154bbca" style="width: 100.0%; height: 100.0%;">Via del Tritone - Furto</div>`)[0];
+                popup_0a6dc8be88927fb847d34f65b1e2653d.setContent(html_e0cb38cfb2653957f39534007154bbca);
+            
+        
+
+        marker_514c25bc13b57510bd449d52699fcc91.bindPopup(popup_0a6dc8be88927fb847d34f65b1e2653d)
+        ;
+
+        
+    
+    
+            var marker_e589c0fd4004f9184c6cfee962b11af2 = L.marker(
+                [41.8959, 12.4686],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_01a02553ee3e36efc7191c0d1eedf9e7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f69c2d982dcdd7aae4a7235364d90c9a = $(`<div id="html_f69c2d982dcdd7aae4a7235364d90c9a" style="width: 100.0%; height: 100.0%;">Via Giulia - Omicidio</div>`)[0];
+                popup_01a02553ee3e36efc7191c0d1eedf9e7.setContent(html_f69c2d982dcdd7aae4a7235364d90c9a);
+            
+        
+
+        marker_e589c0fd4004f9184c6cfee962b11af2.bindPopup(popup_01a02553ee3e36efc7191c0d1eedf9e7)
+        ;
+
+        
+    
+    
+            var marker_dd3bade3f95afd00825d00c0e6028d76 = L.marker(
+                [41.9067, 12.4815],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_bd875e1895c2a8891e19186ca26f7fb7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4d8da815d75cc8e4cd234c1677b1fdcf = $(`<div id="html_4d8da815d75cc8e4cd234c1677b1fdcf" style="width: 100.0%; height: 100.0%;">Via Margutta - Furto</div>`)[0];
+                popup_bd875e1895c2a8891e19186ca26f7fb7.setContent(html_4d8da815d75cc8e4cd234c1677b1fdcf);
+            
+        
+
+        marker_dd3bade3f95afd00825d00c0e6028d76.bindPopup(popup_bd875e1895c2a8891e19186ca26f7fb7)
+        ;
+
+        
+    
+    
+            var marker_c22261987dfc3c2267477d0c86e16e08 = L.marker(
+                [41.9061, 12.4801],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_3a86eed787207f0a5ccbd1bdbacab97e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2f4fd7aad09f539311e7982c7af8ce61 = $(`<div id="html_2f4fd7aad09f539311e7982c7af8ce61" style="width: 100.0%; height: 100.0%;">Via del Babuino - Aggressione</div>`)[0];
+                popup_3a86eed787207f0a5ccbd1bdbacab97e.setContent(html_2f4fd7aad09f539311e7982c7af8ce61);
+            
+        
+
+        marker_c22261987dfc3c2267477d0c86e16e08.bindPopup(popup_3a86eed787207f0a5ccbd1bdbacab97e)
+        ;
+
+        
+    
+    
+            var marker_606667d01944b1d2a992643908a75072 = L.marker(
+                [41.8963, 12.4657],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_0faf41163752f1b2f3e82d907727428d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e6ad3e25ac12aaa5bb870a86e2b7419f = $(`<div id="html_e6ad3e25ac12aaa5bb870a86e2b7419f" style="width: 100.0%; height: 100.0%;">Via della Lungara - Furto</div>`)[0];
+                popup_0faf41163752f1b2f3e82d907727428d.setContent(html_e6ad3e25ac12aaa5bb870a86e2b7419f);
+            
+        
+
+        marker_606667d01944b1d2a992643908a75072.bindPopup(popup_0faf41163752f1b2f3e82d907727428d)
+        ;
+
+        
+    
+    
+            var marker_9901de5d5e1e971d4d266e1716a4cb69 = L.marker(
+                [41.8998, 12.4709],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_4bebeb594c1eb898e29d0e01f8dfb3fb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_41c98363720919472849b5b6d69590dc = $(`<div id="html_41c98363720919472849b5b6d69590dc" style="width: 100.0%; height: 100.0%;">Via del Governo Vecchio - Furto</div>`)[0];
+                popup_4bebeb594c1eb898e29d0e01f8dfb3fb.setContent(html_41c98363720919472849b5b6d69590dc);
+            
+        
+
+        marker_9901de5d5e1e971d4d266e1716a4cb69.bindPopup(popup_4bebeb594c1eb898e29d0e01f8dfb3fb)
+        ;
+
+        
+    
+    
+            var marker_c79742b94d8963992d5bbda5e602f39d = L.marker(
+                [41.8933, 12.4722],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_7766f9ad4b95dd66a29fae3f80a01137 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ff535ca0ab52cf0b81af5309e6bb55af = $(`<div id="html_ff535ca0ab52cf0b81af5309e6bb55af" style="width: 100.0%; height: 100.0%;">Vicolo della Campanella - Omicidio</div>`)[0];
+                popup_7766f9ad4b95dd66a29fae3f80a01137.setContent(html_ff535ca0ab52cf0b81af5309e6bb55af);
+            
+        
+
+        marker_c79742b94d8963992d5bbda5e602f39d.bindPopup(popup_7766f9ad4b95dd66a29fae3f80a01137)
+        ;
+
+        
+    
+    
+            var marker_c44700606764af8f14af87e4a1d86112 = L.marker(
+                [41.8944, 12.4718],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_59b2e1644da34f171e1f7bdadf5a7ded = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e91f2e8f571c1a660112a8d52e415acf = $(`<div id="html_e91f2e8f571c1a660112a8d52e415acf" style="width: 100.0%; height: 100.0%;">Via dei Giubbonari - Furto</div>`)[0];
+                popup_59b2e1644da34f171e1f7bdadf5a7ded.setContent(html_e91f2e8f571c1a660112a8d52e415acf);
+            
+        
+
+        marker_c44700606764af8f14af87e4a1d86112.bindPopup(popup_59b2e1644da34f171e1f7bdadf5a7ded)
+        ;
+
+        
+    
+    
+            var marker_73dbe15dcb6d734ef0f058473e455a4e = L.marker(
+                [41.9105, 12.4768],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_593f3c6d943b660d77f1ec9d19bdf3b8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2615628a0d4c6258ce54b9c25b03bd03 = $(`<div id="html_2615628a0d4c6258ce54b9c25b03bd03" style="width: 100.0%; height: 100.0%;">Piazza del Popolo - Furto</div>`)[0];
+                popup_593f3c6d943b660d77f1ec9d19bdf3b8.setContent(html_2615628a0d4c6258ce54b9c25b03bd03);
+            
+        
+
+        marker_73dbe15dcb6d734ef0f058473e455a4e.bindPopup(popup_593f3c6d943b660d77f1ec9d19bdf3b8)
+        ;
+
+        
+    
+    
+            var marker_356e656b05b22be8cff6646a04a757f3 = L.marker(
+                [41.9021, 12.4833],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_b64975a2b5683bfa734e903255095bb3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_54ccf9918a16c8e48bcc6bb73343d494 = $(`<div id="html_54ccf9918a16c8e48bcc6bb73343d494" style="width: 100.0%; height: 100.0%;">Via del Corso - Aggressione</div>`)[0];
+                popup_b64975a2b5683bfa734e903255095bb3.setContent(html_54ccf9918a16c8e48bcc6bb73343d494);
+            
+        
+
+        marker_356e656b05b22be8cff6646a04a757f3.bindPopup(popup_b64975a2b5683bfa734e903255095bb3)
+        ;
+
+        
+    
+    
+            var marker_21eb09925699820bb2e4742fb3ffcbab = L.marker(
+                [41.9002, 12.4961],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_555a3a45255f3acd1d93d4e18fc9f139 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a4d3f9e6a1baf5963e8b3d874a077d1f = $(`<div id="html_a4d3f9e6a1baf5963e8b3d874a077d1f" style="width: 100.0%; height: 100.0%;">Via Nazionale - Furto</div>`)[0];
+                popup_555a3a45255f3acd1d93d4e18fc9f139.setContent(html_a4d3f9e6a1baf5963e8b3d874a077d1f);
+            
+        
+
+        marker_21eb09925699820bb2e4742fb3ffcbab.bindPopup(popup_555a3a45255f3acd1d93d4e18fc9f139)
+        ;
+
+        
+    
+    
+            var marker_d1fdfe857d58f55c5c6add497d2ce756 = L.marker(
+                [41.8843, 12.5012],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_9c2f8d6b42357560f921ae5418fd7c38 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6d96ff40ab916b445dc3e18b0895a648 = $(`<div id="html_6d96ff40ab916b445dc3e18b0895a648" style="width: 100.0%; height: 100.0%;">Via Appia Nuova - Omicidio</div>`)[0];
+                popup_9c2f8d6b42357560f921ae5418fd7c38.setContent(html_6d96ff40ab916b445dc3e18b0895a648);
+            
+        
+
+        marker_d1fdfe857d58f55c5c6add497d2ce756.bindPopup(popup_9c2f8d6b42357560f921ae5418fd7c38)
+        ;
+
+        
+    
+    
+            var marker_e788f9ee587c7e353db82a6f1eac9325 = L.marker(
+                [41.8762, 12.5234],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_a7d0eeff6e2f2ba28760c9e6a35a9efe = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c16141b91842e6e4af3aee8920faf555 = $(`<div id="html_c16141b91842e6e4af3aee8920faf555" style="width: 100.0%; height: 100.0%;">Via Tuscolana - Furto</div>`)[0];
+                popup_a7d0eeff6e2f2ba28760c9e6a35a9efe.setContent(html_c16141b91842e6e4af3aee8920faf555);
+            
+        
+
+        marker_e788f9ee587c7e353db82a6f1eac9325.bindPopup(popup_a7d0eeff6e2f2ba28760c9e6a35a9efe)
+        ;
+
+        
+    
+    
+            var marker_3086a5cfd1aeaf29ede02a85fafc1c9a = L.marker(
+                [41.8992, 12.4735],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_ea8a315790703c6f9f366b7e06916728 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_049f7b200ceb09e54d896e5ef4000df9 = $(`<div id="html_049f7b200ceb09e54d896e5ef4000df9" style="width: 100.0%; height: 100.0%;">Piazza Navona - Aggressione</div>`)[0];
+                popup_ea8a315790703c6f9f366b7e06916728.setContent(html_049f7b200ceb09e54d896e5ef4000df9);
+            
+        
+
+        marker_3086a5cfd1aeaf29ede02a85fafc1c9a.bindPopup(popup_ea8a315790703c6f9f366b7e06916728)
+        ;
+
+        
+    
+    
+            var marker_d2487bea125ce9d1877f34a2827925c5 = L.marker(
+                [41.8956, 12.4822],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_0b9f90d00a27a28d6572ece196fef1be = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4b6df5f39968424f4abb50ef7f5cac96 = $(`<div id="html_4b6df5f39968424f4abb50ef7f5cac96" style="width: 100.0%; height: 100.0%;">Piazza Venezia - Furto</div>`)[0];
+                popup_0b9f90d00a27a28d6572ece196fef1be.setContent(html_4b6df5f39968424f4abb50ef7f5cac96);
+            
+        
+
+        marker_d2487bea125ce9d1877f34a2827925c5.bindPopup(popup_0b9f90d00a27a28d6572ece196fef1be)
+        ;
+
+        
+    
+    
+            var marker_4da5a90c4c11314b9b05d5d46d455da7 = L.marker(
+                [41.9059, 12.4828],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_521ea77bea34850fcb628abaf073d123 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b3dd6b8b08755022eb6601efa6e6d383 = $(`<div id="html_b3dd6b8b08755022eb6601efa6e6d383" style="width: 100.0%; height: 100.0%;">Piazza di Spagna - Furto</div>`)[0];
+                popup_521ea77bea34850fcb628abaf073d123.setContent(html_b3dd6b8b08755022eb6601efa6e6d383);
+            
+        
+
+        marker_4da5a90c4c11314b9b05d5d46d455da7.bindPopup(popup_521ea77bea34850fcb628abaf073d123)
+        ;
+
+        
+    
+    
+            var marker_8fe398a37a7b6e56c51e20d49cf33739 = L.marker(
+                [41.8796, 12.4671],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_18ca78e446ad1e503eaf6a733cc4bcb8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e6003a1937f732db0004536431501e23 = $(`<div id="html_e6003a1937f732db0004536431501e23" style="width: 100.0%; height: 100.0%;">Viale Trastevere - Omicidio</div>`)[0];
+                popup_18ca78e446ad1e503eaf6a733cc4bcb8.setContent(html_e6003a1937f732db0004536431501e23);
+            
+        
+
+        marker_8fe398a37a7b6e56c51e20d49cf33739.bindPopup(popup_18ca78e446ad1e503eaf6a733cc4bcb8)
+        ;
+
+        
+    
+    
+            var marker_175b943b8d1ea3d0b4464979c9ad260f = L.marker(
+                [41.9012, 12.4597],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_ab25f964d359dc39dbf0ee3d1a3a19a9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e7f26864bf8fd8e477346f279aecaaf5 = $(`<div id="html_e7f26864bf8fd8e477346f279aecaaf5" style="width: 100.0%; height: 100.0%;">Viale dei Castani - Furto</div>`)[0];
+                popup_ab25f964d359dc39dbf0ee3d1a3a19a9.setContent(html_e7f26864bf8fd8e477346f279aecaaf5);
+            
+        
+
+        marker_175b943b8d1ea3d0b4464979c9ad260f.bindPopup(popup_ab25f964d359dc39dbf0ee3d1a3a19a9)
+        ;
+
+        
+    
+    
+            var marker_6c82338f30c8684a1d42c389cbfde961 = L.marker(
+                [41.9243, 12.4918],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_9ccdcb7a9da0a8e491a12d04ce83693b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_985459bafa4055e49396f7e5f8cc90ef = $(`<div id="html_985459bafa4055e49396f7e5f8cc90ef" style="width: 100.0%; height: 100.0%;">Viale Parioli - Aggressione</div>`)[0];
+                popup_9ccdcb7a9da0a8e491a12d04ce83693b.setContent(html_985459bafa4055e49396f7e5f8cc90ef);
+            
+        
+
+        marker_6c82338f30c8684a1d42c389cbfde961.bindPopup(popup_9ccdcb7a9da0a8e491a12d04ce83693b)
+        ;
+
+        
+    
+    
+            var marker_05c5c3bbccbd51ecf97edeb829eb0f63 = L.marker(
+                [41.9097, 12.5102],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_3dc90145aaf08a2467ca60985b2bf7ae = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3a015aa9ba20331062478ad3233f8ffa = $(`<div id="html_3a015aa9ba20331062478ad3233f8ffa" style="width: 100.0%; height: 100.0%;">Viale Regina Elena - Furto</div>`)[0];
+                popup_3dc90145aaf08a2467ca60985b2bf7ae.setContent(html_3a015aa9ba20331062478ad3233f8ffa);
+            
+        
+
+        marker_05c5c3bbccbd51ecf97edeb829eb0f63.bindPopup(popup_3dc90145aaf08a2467ca60985b2bf7ae)
+        ;
+
+        
+    
+    
+            var marker_848fd4e918ab42b60c1f8096c4cd6a43 = L.marker(
+                [41.8911, 12.4883],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_0464b6a2e4f15da53fd0bccaffff806a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e539b7be5b73fa5b75d822d612c510e2 = $(`<div id="html_e539b7be5b73fa5b75d822d612c510e2" style="width: 100.0%; height: 100.0%;">Via dei Fori Imperiali - Omicidio</div>`)[0];
+                popup_0464b6a2e4f15da53fd0bccaffff806a.setContent(html_e539b7be5b73fa5b75d822d612c510e2);
+            
+        
+
+        marker_848fd4e918ab42b60c1f8096c4cd6a43.bindPopup(popup_0464b6a2e4f15da53fd0bccaffff806a)
+        ;
+
+        
+    
+    
+            var marker_8380013758c08b61d4a9f2d795927f64 = L.marker(
+                [41.9021, 12.4549],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_df1eadafd9f361a61831834516f89790 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8ac24e281cc9ea82492ef4eb09289ab3 = $(`<div id="html_8ac24e281cc9ea82492ef4eb09289ab3" style="width: 100.0%; height: 100.0%;">Via della Conciliazione - Furto</div>`)[0];
+                popup_df1eadafd9f361a61831834516f89790.setContent(html_8ac24e281cc9ea82492ef4eb09289ab3);
+            
+        
+
+        marker_8380013758c08b61d4a9f2d795927f64.bindPopup(popup_df1eadafd9f361a61831834516f89790)
+        ;
+
+        
+    
+    
+            var marker_2ef3c3dabc5e82b27c7c93740f92eabb = L.marker(
+                [41.8948, 12.4643],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_5d39b4f67b158966886f0aaa78eeb907 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5955b17127b385d5cb1c9fd410f889e4 = $(`<div id="html_5955b17127b385d5cb1c9fd410f889e4" style="width: 100.0%; height: 100.0%;">Via della Lungara - Furto</div>`)[0];
+                popup_5d39b4f67b158966886f0aaa78eeb907.setContent(html_5955b17127b385d5cb1c9fd410f889e4);
+            
+        
+
+        marker_2ef3c3dabc5e82b27c7c93740f92eabb.bindPopup(popup_5d39b4f67b158966886f0aaa78eeb907)
+        ;
+
+        
+    
+    
+            var marker_d385c08e621cd827a4bd817c85c7c5b9 = L.marker(
+                [41.9076, 12.4799],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_0a334d3839d06e611d6507ad79f2e1ea = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_724bb1875448b3b196f7e2935c3b6e5c = $(`<div id="html_724bb1875448b3b196f7e2935c3b6e5c" style="width: 100.0%; height: 100.0%;">Via del Babuino - Aggressione</div>`)[0];
+                popup_0a334d3839d06e611d6507ad79f2e1ea.setContent(html_724bb1875448b3b196f7e2935c3b6e5c);
+            
+        
+
+        marker_d385c08e621cd827a4bd817c85c7c5b9.bindPopup(popup_0a334d3839d06e611d6507ad79f2e1ea)
+        ;
+
+        
+    
+    
+            var marker_bbf3cb5e2d6062c6874e547661a3391d = L.marker(
+                [41.8987, 12.4708],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_813d598b8554cb650496cf3e764b90af = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f0b28c48c1d32cce25b535f3e3ed1e65 = $(`<div id="html_f0b28c48c1d32cce25b535f3e3ed1e65" style="width: 100.0%; height: 100.0%;">Via dei Coronari - Furto</div>`)[0];
+                popup_813d598b8554cb650496cf3e764b90af.setContent(html_f0b28c48c1d32cce25b535f3e3ed1e65);
+            
+        
+
+        marker_bbf3cb5e2d6062c6874e547661a3391d.bindPopup(popup_813d598b8554cb650496cf3e764b90af)
+        ;
+
+        
+    
+    
+            var marker_834ab9cd3e3b8d17e96f89a66a00cd0c = L.marker(
+                [41.9008, 12.4845],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_49b911df6b68c4fa68ae839c96ae26f5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bf5811bec804ca324db5810961d9af88 = $(`<div id="html_bf5811bec804ca324db5810961d9af88" style="width: 100.0%; height: 100.0%;">Via del Corso - Omicidio</div>`)[0];
+                popup_49b911df6b68c4fa68ae839c96ae26f5.setContent(html_bf5811bec804ca324db5810961d9af88);
+            
+        
+
+        marker_834ab9cd3e3b8d17e96f89a66a00cd0c.bindPopup(popup_49b911df6b68c4fa68ae839c96ae26f5)
+        ;
+
+        
+    
+    
+            var marker_64aec33af2101798e0aeede5d321a8b1 = L.marker(
+                [41.8992, 12.4968],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_370803936c80e51ed5a1c3e59dc34217 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_99301d784fd6745ce2c8e5c1b77357c1 = $(`<div id="html_99301d784fd6745ce2c8e5c1b77357c1" style="width: 100.0%; height: 100.0%;">Via Nazionale - Furto</div>`)[0];
+                popup_370803936c80e51ed5a1c3e59dc34217.setContent(html_99301d784fd6745ce2c8e5c1b77357c1);
+            
+        
+
+        marker_64aec33af2101798e0aeede5d321a8b1.bindPopup(popup_370803936c80e51ed5a1c3e59dc34217)
+        ;
+
+        
+    
+    
+            var marker_eb79c769a2dea8ab09ad87c2c36af730 = L.marker(
+                [41.8862, 12.5034],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_62a1f1ea7ef0b4141f895af21136f558 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e6dd83995b8ff33b709c6bf5f3680b89 = $(`<div id="html_e6dd83995b8ff33b709c6bf5f3680b89" style="width: 100.0%; height: 100.0%;">Via Appia Nuova - Furto</div>`)[0];
+                popup_62a1f1ea7ef0b4141f895af21136f558.setContent(html_e6dd83995b8ff33b709c6bf5f3680b89);
+            
+        
+
+        marker_eb79c769a2dea8ab09ad87c2c36af730.bindPopup(popup_62a1f1ea7ef0b4141f895af21136f558)
+        ;
+
+        
+    
+    
+            var marker_d6208c53cd31d271ca896e9cfa6ebcf4 = L.marker(
+                [41.8984, 12.4261],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_1c8931511408ad991890062532f00776 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_289de3868fdd7a723e8e75745b7f52b5 = $(`<div id="html_289de3868fdd7a723e8e75745b7f52b5" style="width: 100.0%; height: 100.0%;">Via Aurelia - Aggressione</div>`)[0];
+                popup_1c8931511408ad991890062532f00776.setContent(html_289de3868fdd7a723e8e75745b7f52b5);
+            
+        
+
+        marker_d6208c53cd31d271ca896e9cfa6ebcf4.bindPopup(popup_1c8931511408ad991890062532f00776)
+        ;
+
+        
+    
+    
+            var marker_62e97c209da1116dd3ddc6da9cd6bc4f = L.marker(
+                [41.9712, 12.4195],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_308be84cace1ff3926df62498cce75e6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bbbabdbe8d9b274946e388fc44581aed = $(`<div id="html_bbbabdbe8d9b274946e388fc44581aed" style="width: 100.0%; height: 100.0%;">Via Cassia - Furto</div>`)[0];
+                popup_308be84cace1ff3926df62498cce75e6.setContent(html_bbbabdbe8d9b274946e388fc44581aed);
+            
+        
+
+        marker_62e97c209da1116dd3ddc6da9cd6bc4f.bindPopup(popup_308be84cace1ff3926df62498cce75e6)
+        ;
+
+        
+    
+    
+            var marker_f0d62ed84e69aee412239b8c3dd8c276 = L.marker(
+                [41.9002, 12.4885],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_0ea7755923e2d21d86c8530ba25197b0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_15ed95007c155b6d0bd8352e28434c88 = $(`<div id="html_15ed95007c155b6d0bd8352e28434c88" style="width: 100.0%; height: 100.0%;">Via del Tritone - Omicidio</div>`)[0];
+                popup_0ea7755923e2d21d86c8530ba25197b0.setContent(html_15ed95007c155b6d0bd8352e28434c88);
+            
+        
+
+        marker_f0d62ed84e69aee412239b8c3dd8c276.bindPopup(popup_0ea7755923e2d21d86c8530ba25197b0)
+        ;
+
+        
+    
+    
+            var marker_f9bdcc2662b0d6e988278b30628e54bb = L.marker(
+                [41.9063, 12.4873],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_935d06af26d835441d9686e403fcd10a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a221b173d199508437be9a88548a75d4 = $(`<div id="html_a221b173d199508437be9a88548a75d4" style="width: 100.0%; height: 100.0%;">Via Veneto - Furto</div>`)[0];
+                popup_935d06af26d835441d9686e403fcd10a.setContent(html_a221b173d199508437be9a88548a75d4);
+            
+        
+
+        marker_f9bdcc2662b0d6e988278b30628e54bb.bindPopup(popup_935d06af26d835441d9686e403fcd10a)
+        ;
+
+        
+    
+    
+            var marker_4c662c5e94aa7827056fc3e85f2f936a = L.marker(
+                [41.9062, 12.4829],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_55cd595dd6b16b2cebde3359e3453416 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f6db21658dc15f5e9a9353844562d8c2 = $(`<div id="html_f6db21658dc15f5e9a9353844562d8c2" style="width: 100.0%; height: 100.0%;">Via dei Condotti - Furto</div>`)[0];
+                popup_55cd595dd6b16b2cebde3359e3453416.setContent(html_f6db21658dc15f5e9a9353844562d8c2);
+            
+        
+
+        marker_4c662c5e94aa7827056fc3e85f2f936a.bindPopup(popup_55cd595dd6b16b2cebde3359e3453416)
+        ;
+
+        
+    
+    
+            var marker_8226a4b7ab2794475210831e957282b0 = L.marker(
+                [41.9078, 12.4819],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_693d48e1282b3140ddbf5e785b2fbad0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7c5576557694eb7dfc7ec57e4c1d6410 = $(`<div id="html_7c5576557694eb7dfc7ec57e4c1d6410" style="width: 100.0%; height: 100.0%;">Via Margutta - Aggressione</div>`)[0];
+                popup_693d48e1282b3140ddbf5e785b2fbad0.setContent(html_7c5576557694eb7dfc7ec57e4c1d6410);
+            
+        
+
+        marker_8226a4b7ab2794475210831e957282b0.bindPopup(popup_693d48e1282b3140ddbf5e785b2fbad0)
+        ;
+
+        
+    
+    
+            var marker_e9acaef2eadb7bfa9898ba2a62b9e7e6 = L.marker(
+                [41.9065, 12.4802],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_e83c1cc6052eeec40d6566cb7e9808e1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b97da333940ee68479b1d2600562ef6f = $(`<div id="html_b97da333940ee68479b1d2600562ef6f" style="width: 100.0%; height: 100.0%;">Via della Croce - Furto</div>`)[0];
+                popup_e83c1cc6052eeec40d6566cb7e9808e1.setContent(html_b97da333940ee68479b1d2600562ef6f);
+            
+        
+
+        marker_e9acaef2eadb7bfa9898ba2a62b9e7e6.bindPopup(popup_e83c1cc6052eeec40d6566cb7e9808e1)
+        ;
+
+        
+    
+    
+            var marker_aad62df95cafec45ef780f3dcf1595a3 = L.marker(
+                [41.9071, 12.4806],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_77423174a8acc2da3420fd8d40d4cc73 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8114aaf15f0df4de0c04fd71c262da25 = $(`<div id="html_8114aaf15f0df4de0c04fd71c262da25" style="width: 100.0%; height: 100.0%;">Via del Babuino - Omicidio</div>`)[0];
+                popup_77423174a8acc2da3420fd8d40d4cc73.setContent(html_8114aaf15f0df4de0c04fd71c262da25);
+            
+        
+
+        marker_aad62df95cafec45ef780f3dcf1595a3.bindPopup(popup_77423174a8acc2da3420fd8d40d4cc73)
+        ;
+
+        
+    
+    
+            var marker_dacc848bc949b5796e276770e5bcd817 = L.marker(
+                [41.8969, 12.4681],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_cbea8be7223e7b90ed285dca503e1efb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5c365b2eeadaf68add1efc280b619011 = $(`<div id="html_5c365b2eeadaf68add1efc280b619011" style="width: 100.0%; height: 100.0%;">Via Giulia - Furto</div>`)[0];
+                popup_cbea8be7223e7b90ed285dca503e1efb.setContent(html_5c365b2eeadaf68add1efc280b619011);
+            
+        
+
+        marker_dacc848bc949b5796e276770e5bcd817.bindPopup(popup_cbea8be7223e7b90ed285dca503e1efb)
+        ;
+
+        
+    
+    
+            var marker_7444b51ee0208229f6107a9b62bdeab4 = L.marker(
+                [41.8936, 12.4729],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_35a1e6daf0ef03fa4cc2411b96c1400d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c7d7e5d0f9ecb5fd3d331a718eb5da38 = $(`<div id="html_c7d7e5d0f9ecb5fd3d331a718eb5da38" style="width: 100.0%; height: 100.0%;">Vicolo della Campanella - Furto</div>`)[0];
+                popup_35a1e6daf0ef03fa4cc2411b96c1400d.setContent(html_c7d7e5d0f9ecb5fd3d331a718eb5da38);
+            
+        
+
+        marker_7444b51ee0208229f6107a9b62bdeab4.bindPopup(popup_35a1e6daf0ef03fa4cc2411b96c1400d)
+        ;
+
+        
+    
+    
+            var marker_f0bb4e39cd367e74ad651b2887a52d1e = L.marker(
+                [41.8917, 12.4742],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_2da829c6c3aae031252f422d1958152c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8aa22c83ffc8e5f62b7067eec14a734c = $(`<div id="html_8aa22c83ffc8e5f62b7067eec14a734c" style="width: 100.0%; height: 100.0%;">Vicolo dei Bovari - Aggressione</div>`)[0];
+                popup_2da829c6c3aae031252f422d1958152c.setContent(html_8aa22c83ffc8e5f62b7067eec14a734c);
+            
+        
+
+        marker_f0bb4e39cd367e74ad651b2887a52d1e.bindPopup(popup_2da829c6c3aae031252f422d1958152c)
+        ;
+
+        
+    
+    
+            var marker_e0cca27f6eb43dc8b7d18f87c0565470 = L.marker(
+                [41.8919, 12.4768],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_fd6f0d1b85f01847629918bab581676d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_956c09186cfd640fc868eb49a9fb162a = $(`<div id="html_956c09186cfd640fc868eb49a9fb162a" style="width: 100.0%; height: 100.0%;">Vicolo delle Vacche - Furto</div>`)[0];
+                popup_fd6f0d1b85f01847629918bab581676d.setContent(html_956c09186cfd640fc868eb49a9fb162a);
+            
+        
+
+        marker_e0cca27f6eb43dc8b7d18f87c0565470.bindPopup(popup_fd6f0d1b85f01847629918bab581676d)
+        ;
+
+        
+    
+    
+            var marker_2c77331994eb21ac19da570422125be1 = L.marker(
+                [41.8944, 12.4785],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_8bd53c6d9e516fbfb3835cef53c93cff = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_31fdef444daaa4fa3a4d94d5f48b50b7 = $(`<div id="html_31fdef444daaa4fa3a4d94d5f48b50b7" style="width: 100.0%; height: 100.0%;">Vicolo del Cinque - Furto</div>`)[0];
+                popup_8bd53c6d9e516fbfb3835cef53c93cff.setContent(html_31fdef444daaa4fa3a4d94d5f48b50b7);
+            
+        
+
+        marker_2c77331994eb21ac19da570422125be1.bindPopup(popup_8bd53c6d9e516fbfb3835cef53c93cff)
+        ;
+
+        
+    
+    
+            var marker_84450455dbcc9842e402c11a3a1740af = L.marker(
+                [41.8956, 12.4698],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_73a39d69730852cd9c4a07260e338f6c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_35c974aa8b5cf6944b9c51ad56303326 = $(`<div id="html_35c974aa8b5cf6944b9c51ad56303326" style="width: 100.0%; height: 100.0%;">Piazza Farnese - Omicidio</div>`)[0];
+                popup_73a39d69730852cd9c4a07260e338f6c.setContent(html_35c974aa8b5cf6944b9c51ad56303326);
+            
+        
+
+        marker_84450455dbcc9842e402c11a3a1740af.bindPopup(popup_73a39d69730852cd9c4a07260e338f6c)
+        ;
+
+        
+    
+    
+            var marker_57b20070f48261e9069633a338e3cb5e = L.marker(
+                [41.8993, 12.4767],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_1ea04c25c78063bdda0fc28e85c9fdc3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_90d229df06963682086b45a242acd41c = $(`<div id="html_90d229df06963682086b45a242acd41c" style="width: 100.0%; height: 100.0%;">Piazza della Rotonda - Furto</div>`)[0];
+                popup_1ea04c25c78063bdda0fc28e85c9fdc3.setContent(html_90d229df06963682086b45a242acd41c);
+            
+        
+
+        marker_57b20070f48261e9069633a338e3cb5e.bindPopup(popup_1ea04c25c78063bdda0fc28e85c9fdc3)
+        ;
+
+        
+    
+    
+            var marker_0ed580f6632482cda1f455ee2a403ef9 = L.marker(
+                [41.8987, 12.4778],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_d15b1233b73c5e74c774585ebf1c7e3a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d287293eb63016fe299a12388c7f5808 = $(`<div id="html_d287293eb63016fe299a12388c7f5808" style="width: 100.0%; height: 100.0%;">Piazza della Minerva - Aggressione</div>`)[0];
+                popup_d15b1233b73c5e74c774585ebf1c7e3a.setContent(html_d287293eb63016fe299a12388c7f5808);
+            
+        
+
+        marker_0ed580f6632482cda1f455ee2a403ef9.bindPopup(popup_d15b1233b73c5e74c774585ebf1c7e3a)
+        ;
+
+        
+    
+    
+            var marker_97a8e49c2b45de5000a2489a764219e3 = L.marker(
+                [41.8982, 12.4739],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_aced8b90345c667fe53aff41ce28ddbb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_47457019bd3459146067d5fc2c55ff91 = $(`<div id="html_47457019bd3459146067d5fc2c55ff91" style="width: 100.0%; height: 100.0%;">Piazza Navona - Furto</div>`)[0];
+                popup_aced8b90345c667fe53aff41ce28ddbb.setContent(html_47457019bd3459146067d5fc2c55ff91);
+            
+        
+
+        marker_97a8e49c2b45de5000a2489a764219e3.bindPopup(popup_aced8b90345c667fe53aff41ce28ddbb)
+        ;
+
+        
+    
+    
+            var marker_7ed8c849c0a26da0f6ffc7662611f12d = L.marker(
+                [41.8996, 12.4795],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_c408ff9b75903f27009d5156a4d40b97 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c9bed0866893b3f32af6e29da54922af = $(`<div id="html_c9bed0866893b3f32af6e29da54922af" style="width: 100.0%; height: 100.0%;">Piazza di Pietra - Omicidio</div>`)[0];
+                popup_c408ff9b75903f27009d5156a4d40b97.setContent(html_c9bed0866893b3f32af6e29da54922af);
+            
+        
+
+        marker_7ed8c849c0a26da0f6ffc7662611f12d.bindPopup(popup_c408ff9b75903f27009d5156a4d40b97)
+        ;
+
+        
+    
+    
+            var marker_ba3a6bdbc92be09395ec975e0c106165 = L.marker(
+                [41.9011, 12.4802],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_5ddee45ad1c7e51e6904fa1758c700ae = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9f6f84cc3a6b30fa4c8814fd95877898 = $(`<div id="html_9f6f84cc3a6b30fa4c8814fd95877898" style="width: 100.0%; height: 100.0%;">Piazza Colonna - Furto</div>`)[0];
+                popup_5ddee45ad1c7e51e6904fa1758c700ae.setContent(html_9f6f84cc3a6b30fa4c8814fd95877898);
+            
+        
+
+        marker_ba3a6bdbc92be09395ec975e0c106165.bindPopup(popup_5ddee45ad1c7e51e6904fa1758c700ae)
+        ;
+
+        
+    
+    
+            var marker_5d956e139cd9f5d133d36087b92adb6c = L.marker(
+                [41.8962, 12.4833],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_ca99721f662b0824c1ac12b6d423753f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ebd67e93bed1d8c3af157deed80c14d4 = $(`<div id="html_ebd67e93bed1d8c3af157deed80c14d4" style="width: 100.0%; height: 100.0%;">Piazza Venezia - Furto</div>`)[0];
+                popup_ca99721f662b0824c1ac12b6d423753f.setContent(html_ebd67e93bed1d8c3af157deed80c14d4);
+            
+        
+
+        marker_5d956e139cd9f5d133d36087b92adb6c.bindPopup(popup_ca99721f662b0824c1ac12b6d423753f)
+        ;
+
+        
+    
+    
+            var marker_5687629b5f13db32c896068e7b27caa6 = L.marker(
+                [41.9108, 12.4764],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_fd171924cb028831d13e618858a5a7d2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1b6a477c15e8f4831242a49910812ff1 = $(`<div id="html_1b6a477c15e8f4831242a49910812ff1" style="width: 100.0%; height: 100.0%;">Piazza del Popolo - Aggressione</div>`)[0];
+                popup_fd171924cb028831d13e618858a5a7d2.setContent(html_1b6a477c15e8f4831242a49910812ff1);
+            
+        
+
+        marker_5687629b5f13db32c896068e7b27caa6.bindPopup(popup_fd171924cb028831d13e618858a5a7d2)
+        ;
+
+        
+    
+    
+            var marker_b0daa8416207c5a06ea5272c1fe2a8e9 = L.marker(
+                [41.9056, 12.4829],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_bf83024e2159791d6069dcb1c510dcce = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a58a42d380856419e8087815ae4f732f = $(`<div id="html_a58a42d380856419e8087815ae4f732f" style="width: 100.0%; height: 100.0%;">Piazza di Spagna - Furto</div>`)[0];
+                popup_bf83024e2159791d6069dcb1c510dcce.setContent(html_a58a42d380856419e8087815ae4f732f);
+            
+        
+
+        marker_b0daa8416207c5a06ea5272c1fe2a8e9.bindPopup(popup_bf83024e2159791d6069dcb1c510dcce)
+        ;
+
+        
+    
+    
+            var marker_1a988196b4de277c4870724092d6c934 = L.marker(
+                [41.9017, 12.4958],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_66027c8f1af70ab4049542d068bd72a8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_61c1b13d176358fbeb56e09d852c404d = $(`<div id="html_61c1b13d176358fbeb56e09d852c404d" style="width: 100.0%; height: 100.0%;">Piazza della Repubblica - Omicidio</div>`)[0];
+                popup_66027c8f1af70ab4049542d068bd72a8.setContent(html_61c1b13d176358fbeb56e09d852c404d);
+            
+        
+
+        marker_1a988196b4de277c4870724092d6c934.bindPopup(popup_66027c8f1af70ab4049542d068bd72a8)
+        ;
+
+        
+    
+    
+            var marker_3718892e11e1829e02194625f57205a9 = L.marker(
+                [41.9036, 12.4886],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_6fbc02d2584315504d0c723191dcb4f0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6e18896c5dcb10633fc65cf2bd9fc030 = $(`<div id="html_6e18896c5dcb10633fc65cf2bd9fc030" style="width: 100.0%; height: 100.0%;">Piazza Barberini - Furto</div>`)[0];
+                popup_6fbc02d2584315504d0c723191dcb4f0.setContent(html_6e18896c5dcb10633fc65cf2bd9fc030);
+            
+        
+
+        marker_3718892e11e1829e02194625f57205a9.bindPopup(popup_6fbc02d2584315504d0c723191dcb4f0)
+        ;
+
+        
+    
+    
+            var marker_f9a2efe2aa2b6e7235326e37cccdc0f6 = L.marker(
+                [41.8959, 12.4827],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_3cfbb37246032e99014e887c2243b7f2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1514fda5a10d540e0956b65157e1217a = $(`<div id="html_1514fda5a10d540e0956b65157e1217a" style="width: 100.0%; height: 100.0%;">Piazza Venezia - Furto</div>`)[0];
+                popup_3cfbb37246032e99014e887c2243b7f2.setContent(html_1514fda5a10d540e0956b65157e1217a);
+            
+        
+
+        marker_f9a2efe2aa2b6e7235326e37cccdc0f6.bindPopup(popup_3cfbb37246032e99014e887c2243b7f2)
+        ;
+
+        
+    
+    
+            var marker_44234de3fded2ee240e60eab2b424a8f = L.marker(
+                [41.8998, 12.4765],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_7d3faf0ed6329e60b0ba58d70d83ead4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dc38e1d93fad08456d08baee8852b039 = $(`<div id="html_dc38e1d93fad08456d08baee8852b039" style="width: 100.0%; height: 100.0%;">Piazza della Rotonda - Aggressione</div>`)[0];
+                popup_7d3faf0ed6329e60b0ba58d70d83ead4.setContent(html_dc38e1d93fad08456d08baee8852b039);
+            
+        
+
+        marker_44234de3fded2ee240e60eab2b424a8f.bindPopup(popup_7d3faf0ed6329e60b0ba58d70d83ead4)
+        ;
+
+        
+    
+    
+            var marker_fadced80e22420bf44a439d50ac8a87f = L.marker(
+                [41.8981, 12.4736],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_6bead835f9e3c68adab3850af05d5669 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2293c7e4974eb9ab197dee126773883b = $(`<div id="html_2293c7e4974eb9ab197dee126773883b" style="width: 100.0%; height: 100.0%;">Piazza Navona - Furto</div>`)[0];
+                popup_6bead835f9e3c68adab3850af05d5669.setContent(html_2293c7e4974eb9ab197dee126773883b);
+            
+        
+
+        marker_fadced80e22420bf44a439d50ac8a87f.bindPopup(popup_6bead835f9e3c68adab3850af05d5669)
+        ;
+
+        
+    
+    
+            var marker_857340024044de4481926e8a33cfa391 = L.marker(
+                [41.9061, 12.4825],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_76eb5d5cca54e10151eed4a42e79cdd5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2eeb43854191b5e291ed4faf4295a260 = $(`<div id="html_2eeb43854191b5e291ed4faf4295a260" style="width: 100.0%; height: 100.0%;">Piazza di Spagna - Omicidio</div>`)[0];
+                popup_76eb5d5cca54e10151eed4a42e79cdd5.setContent(html_2eeb43854191b5e291ed4faf4295a260);
+            
+        
+
+        marker_857340024044de4481926e8a33cfa391.bindPopup(popup_76eb5d5cca54e10151eed4a42e79cdd5)
+        ;
+
+        
+    
+    
+            var marker_1b2c880591ae98f8990bbd5484cfa054 = L.marker(
+                [41.9103, 12.4761],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_29400a2fc6fc20b7d5e1109464898a93 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_61c2dbd7b566039a9b181ecb22276032 = $(`<div id="html_61c2dbd7b566039a9b181ecb22276032" style="width: 100.0%; height: 100.0%;">Piazza del Popolo - Furto</div>`)[0];
+                popup_29400a2fc6fc20b7d5e1109464898a93.setContent(html_61c2dbd7b566039a9b181ecb22276032);
+            
+        
+
+        marker_1b2c880591ae98f8990bbd5484cfa054.bindPopup(popup_29400a2fc6fc20b7d5e1109464898a93)
+        ;
+
+        
+    
+    
+            var marker_7078247244656747136c19c2be32e228 = L.marker(
+                [41.8962, 12.4711],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_e110678954f60ef48c23eb3b12d2a8cc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_38669378fcebc2a04a278cf85594d19e = $(`<div id="html_38669378fcebc2a04a278cf85594d19e" style="width: 100.0%; height: 100.0%;">Piazza Farnese - Furto</div>`)[0];
+                popup_e110678954f60ef48c23eb3b12d2a8cc.setContent(html_38669378fcebc2a04a278cf85594d19e);
+            
+        
+
+        marker_7078247244656747136c19c2be32e228.bindPopup(popup_e110678954f60ef48c23eb3b12d2a8cc)
+        ;
+
+        
+    
+    
+            var marker_5ca6017320142b5f5a00f0565cb0680d = L.marker(
+                [41.9009, 12.4804],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_26f9d8924c266e442002f89fe7d5cd5c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7683c5d942601738a10ccf5e31d326f7 = $(`<div id="html_7683c5d942601738a10ccf5e31d326f7" style="width: 100.0%; height: 100.0%;">Piazza Colonna - Aggressione</div>`)[0];
+                popup_26f9d8924c266e442002f89fe7d5cd5c.setContent(html_7683c5d942601738a10ccf5e31d326f7);
+            
+        
+
+        marker_5ca6017320142b5f5a00f0565cb0680d.bindPopup(popup_26f9d8924c266e442002f89fe7d5cd5c)
+        ;
+
+        
+    
+    
+            var marker_243b58589ae638c86d53686e68ddb0c7 = L.marker(
+                [41.8995, 12.4799],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_52797bdee481909f9dd60558be7d3a00 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_17ca88d2013d9e45b14b30d1f9060800 = $(`<div id="html_17ca88d2013d9e45b14b30d1f9060800" style="width: 100.0%; height: 100.0%;">Piazza di Pietra - Furto</div>`)[0];
+                popup_52797bdee481909f9dd60558be7d3a00.setContent(html_17ca88d2013d9e45b14b30d1f9060800);
+            
+        
+
+        marker_243b58589ae638c86d53686e68ddb0c7.bindPopup(popup_52797bdee481909f9dd60558be7d3a00)
+        ;
+
+        
+    
+    
+            var marker_28cd0d3122916d2efc65198c067dfb9d = L.marker(
+                [41.8958, 12.4829],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_73976b5fa588225a5f33c70c7edb47f4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9778bc0a72ba7565383ec0d38b9da17d = $(`<div id="html_9778bc0a72ba7565383ec0d38b9da17d" style="width: 100.0%; height: 100.0%;">Piazza Venezia - Furto</div>`)[0];
+                popup_73976b5fa588225a5f33c70c7edb47f4.setContent(html_9778bc0a72ba7565383ec0d38b9da17d);
+            
+        
+
+        marker_28cd0d3122916d2efc65198c067dfb9d.bindPopup(popup_73976b5fa588225a5f33c70c7edb47f4)
+        ;
+
+        
+    
+    
+            var marker_7f09a2e4c020cbc400dbf5a74248b6e5 = L.marker(
+                [41.9021, 12.4956],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_2b01766ed88ce9f5e5e01e050b7de08f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b00e88db5539d2868cc8ff18075b7f05 = $(`<div id="html_b00e88db5539d2868cc8ff18075b7f05" style="width: 100.0%; height: 100.0%;">Piazza della Repubblica - Aggressione</div>`)[0];
+                popup_2b01766ed88ce9f5e5e01e050b7de08f.setContent(html_b00e88db5539d2868cc8ff18075b7f05);
+            
+        
+
+        marker_7f09a2e4c020cbc400dbf5a74248b6e5.bindPopup(popup_2b01766ed88ce9f5e5e01e050b7de08f)
+        ;
+
+        
+    
+    
+            var marker_e13c23fd7f9be4f952f05fbcc2b5c6c7 = L.marker(
+                [41.9037, 12.4884],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_9dd6d8f30231909684c51e0801ba5b94 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3471630f9ed43040df080cfcb4f8cad9 = $(`<div id="html_3471630f9ed43040df080cfcb4f8cad9" style="width: 100.0%; height: 100.0%;">Piazza Barberini - Furto</div>`)[0];
+                popup_9dd6d8f30231909684c51e0801ba5b94.setContent(html_3471630f9ed43040df080cfcb4f8cad9);
+            
+        
+
+        marker_e13c23fd7f9be4f952f05fbcc2b5c6c7.bindPopup(popup_9dd6d8f30231909684c51e0801ba5b94)
+        ;
+
+        
+    
+    
+            var marker_8716bd90f75cf6c977111fa95b20ef45 = L.marker(
+                [41.8922, 12.4826],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_fc6ac9d4b8bc8650765671698e977818 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_56363909d683a01e55354b11a162e433 = $(`<div id="html_56363909d683a01e55354b11a162e433" style="width: 100.0%; height: 100.0%;">Piazza del Campidoglio - Omicidio</div>`)[0];
+                popup_fc6ac9d4b8bc8650765671698e977818.setContent(html_56363909d683a01e55354b11a162e433);
+            
+        
+
+        marker_8716bd90f75cf6c977111fa95b20ef45.bindPopup(popup_fc6ac9d4b8bc8650765671698e977818)
+        ;
+
+        
+    
+    
+            var marker_70ff8508706ba707ebed5a2a8c31d92e = L.marker(
+                [41.8988, 12.4775],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_cf72b0ab714c178f6b50c772a832c9a3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3aadfa7fd2623205d713b427413dfcab = $(`<div id="html_3aadfa7fd2623205d713b427413dfcab" style="width: 100.0%; height: 100.0%;">Piazza della Minerva - Furto</div>`)[0];
+                popup_cf72b0ab714c178f6b50c772a832c9a3.setContent(html_3aadfa7fd2623205d713b427413dfcab);
+            
+        
+
+        marker_70ff8508706ba707ebed5a2a8c31d92e.bindPopup(popup_cf72b0ab714c178f6b50c772a832c9a3)
+        ;
+
+        
+    
+    
+            var marker_8f310249bf2b673d3476f9f20c4220db = L.marker(
+                [41.8983, 12.4741],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_27797072c3d685d13a61930833914044 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8ba28f35aac0695bedec273a8daa84c5 = $(`<div id="html_8ba28f35aac0695bedec273a8daa84c5" style="width: 100.0%; height: 100.0%;">Piazza Navona - Aggressione</div>`)[0];
+                popup_27797072c3d685d13a61930833914044.setContent(html_8ba28f35aac0695bedec273a8daa84c5);
+            
+        
+
+        marker_8f310249bf2b673d3476f9f20c4220db.bindPopup(popup_27797072c3d685d13a61930833914044)
+        ;
+
+        
+    
+    
+            var marker_241db96196261216ddedf4ea960e987f = L.marker(
+                [41.9063, 12.4831],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_38ac0a9c8bc1091c1a0eda52d570cd63 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_55704842bbc97462ff8dd0e6eb02389e = $(`<div id="html_55704842bbc97462ff8dd0e6eb02389e" style="width: 100.0%; height: 100.0%;">Piazza di Spagna - Furto</div>`)[0];
+                popup_38ac0a9c8bc1091c1a0eda52d570cd63.setContent(html_55704842bbc97462ff8dd0e6eb02389e);
+            
+        
+
+        marker_241db96196261216ddedf4ea960e987f.bindPopup(popup_38ac0a9c8bc1091c1a0eda52d570cd63)
+        ;
+
+        
+    
+    
+            var marker_c63568b97fec3b349b4bc965b4081e5a = L.marker(
+                [41.9106, 12.4763],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_beec7fe1e947d25fa46d1e2bef54962f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7a86177926b83556bd2c758370c7691a = $(`<div id="html_7a86177926b83556bd2c758370c7691a" style="width: 100.0%; height: 100.0%;">Piazza del Popolo - Furto</div>`)[0];
+                popup_beec7fe1e947d25fa46d1e2bef54962f.setContent(html_7a86177926b83556bd2c758370c7691a);
+            
+        
+
+        marker_c63568b97fec3b349b4bc965b4081e5a.bindPopup(popup_beec7fe1e947d25fa46d1e2bef54962f)
+        ;
+
+        
+    
+    
+            var marker_bdb1dd2367a1c62697de05e8f4d13911 = L.marker(
+                [41.8961, 12.4715],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_685ba48a6d94a1d41aba37df0a34e1b4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_95b72bf8dd98a1cc8e004d455850798b = $(`<div id="html_95b72bf8dd98a1cc8e004d455850798b" style="width: 100.0%; height: 100.0%;">Piazza Farnese - Omicidio</div>`)[0];
+                popup_685ba48a6d94a1d41aba37df0a34e1b4.setContent(html_95b72bf8dd98a1cc8e004d455850798b);
+            
+        
+
+        marker_bdb1dd2367a1c62697de05e8f4d13911.bindPopup(popup_685ba48a6d94a1d41aba37df0a34e1b4)
+        ;
+
+        
+    
+    
+            var marker_eb269002b96b15457e9d6ee2b8653dce = L.marker(
+                [41.901, 12.48],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_c003607773fc5bfc30c56d1e3e079958 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eacf22904c0dc3cbfc0a49d4e2b16127 = $(`<div id="html_eacf22904c0dc3cbfc0a49d4e2b16127" style="width: 100.0%; height: 100.0%;">Piazza Colonna - Furto</div>`)[0];
+                popup_c003607773fc5bfc30c56d1e3e079958.setContent(html_eacf22904c0dc3cbfc0a49d4e2b16127);
+            
+        
+
+        marker_eb269002b96b15457e9d6ee2b8653dce.bindPopup(popup_c003607773fc5bfc30c56d1e3e079958)
+        ;
+
+        
+    
+    
+            var marker_2a78ea8017883724de10cebac04068a7 = L.marker(
+                [41.8997, 12.4803],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_5793ee1a238dde5a7b8e6c52c15eefe6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5a081732321e2f75d7e231a817a05d73 = $(`<div id="html_5a081732321e2f75d7e231a817a05d73" style="width: 100.0%; height: 100.0%;">Piazza di Pietra - Aggressione</div>`)[0];
+                popup_5793ee1a238dde5a7b8e6c52c15eefe6.setContent(html_5a081732321e2f75d7e231a817a05d73);
+            
+        
+
+        marker_2a78ea8017883724de10cebac04068a7.bindPopup(popup_5793ee1a238dde5a7b8e6c52c15eefe6)
+        ;
+
+        
+    
+    
+            var marker_309319de59d4b1100cf42a3b1be5a266 = L.marker(
+                [41.8957, 12.4828],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_469dc997c1b80aa9bab9d3664c430700 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_350c0178ff82512ed82a6258c94b7dd2 = $(`<div id="html_350c0178ff82512ed82a6258c94b7dd2" style="width: 100.0%; height: 100.0%;">Piazza Venezia - Furto</div>`)[0];
+                popup_469dc997c1b80aa9bab9d3664c430700.setContent(html_350c0178ff82512ed82a6258c94b7dd2);
+            
+        
+
+        marker_309319de59d4b1100cf42a3b1be5a266.bindPopup(popup_469dc997c1b80aa9bab9d3664c430700)
+        ;
+
+        
+    
+    
+            var marker_7f8f46f2d58d8325088c40a66ab71265 = L.marker(
+                [41.9022, 12.4957],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_805c2f03bfa72114266c3415dbca6dd6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a9f5763184b7464af7d328234e130845 = $(`<div id="html_a9f5763184b7464af7d328234e130845" style="width: 100.0%; height: 100.0%;">Piazza della Repubblica - Furto</div>`)[0];
+                popup_805c2f03bfa72114266c3415dbca6dd6.setContent(html_a9f5763184b7464af7d328234e130845);
+            
+        
+
+        marker_7f8f46f2d58d8325088c40a66ab71265.bindPopup(popup_805c2f03bfa72114266c3415dbca6dd6)
+        ;
+
+        
+    
+    
+            var marker_4222ae480ee36affb7b248fbea87b328 = L.marker(
+                [41.9038, 12.4882],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_3c7eccbe9797593b5490cc25de43ad6c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c3a148af33c459d4bdc377f659d7c41b = $(`<div id="html_c3a148af33c459d4bdc377f659d7c41b" style="width: 100.0%; height: 100.0%;">Piazza Barberini - Aggressione</div>`)[0];
+                popup_3c7eccbe9797593b5490cc25de43ad6c.setContent(html_c3a148af33c459d4bdc377f659d7c41b);
+            
+        
+
+        marker_4222ae480ee36affb7b248fbea87b328.bindPopup(popup_3c7eccbe9797593b5490cc25de43ad6c)
+        ;
+
+        
+    
+    
+            var marker_92a618938042127355b640a767472fd3 = L.marker(
+                [41.8923, 12.4827],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_2382617adf4b5a8345cf789a0544e8dc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_99169ae9b61ef89d095187693de301b8 = $(`<div id="html_99169ae9b61ef89d095187693de301b8" style="width: 100.0%; height: 100.0%;">Piazza del Campidoglio - Furto</div>`)[0];
+                popup_2382617adf4b5a8345cf789a0544e8dc.setContent(html_99169ae9b61ef89d095187693de301b8);
+            
+        
+
+        marker_92a618938042127355b640a767472fd3.bindPopup(popup_2382617adf4b5a8345cf789a0544e8dc)
+        ;
+
+        
+    
+    
+            var marker_5e8bca8f1d3b80dc34be426f9b1033e2 = L.marker(
+                [41.8987, 12.4774],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_66995a5257cbc136922aaccff118e8c2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_95b0cb5e53a189a4b74caf3b5bc81bc7 = $(`<div id="html_95b0cb5e53a189a4b74caf3b5bc81bc7" style="width: 100.0%; height: 100.0%;">Piazza della Minerva - Furto</div>`)[0];
+                popup_66995a5257cbc136922aaccff118e8c2.setContent(html_95b0cb5e53a189a4b74caf3b5bc81bc7);
+            
+        
+
+        marker_5e8bca8f1d3b80dc34be426f9b1033e2.bindPopup(popup_66995a5257cbc136922aaccff118e8c2)
+        ;
+
+        
+    
+    
+            var marker_fcc45ea7af9817cf6f7b367bee5404c7 = L.marker(
+                [41.8984, 12.474],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_f4f0ea2cde47f3e8c89f91b033d98d1b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2a1fcf93a80e4265f3514ab8164e901d = $(`<div id="html_2a1fcf93a80e4265f3514ab8164e901d" style="width: 100.0%; height: 100.0%;">Piazza Navona - Omicidio</div>`)[0];
+                popup_f4f0ea2cde47f3e8c89f91b033d98d1b.setContent(html_2a1fcf93a80e4265f3514ab8164e901d);
+            
+        
+
+        marker_fcc45ea7af9817cf6f7b367bee5404c7.bindPopup(popup_f4f0ea2cde47f3e8c89f91b033d98d1b)
+        ;
+
+        
+    
+    
+            var marker_06f2317e2d6da72d82733537a3e41dfd = L.marker(
+                [41.9064, 12.483],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_8d0e043c69f22e6cb012fe767deaf379 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_686647e3cc583f8a04c47d2d8d43a093 = $(`<div id="html_686647e3cc583f8a04c47d2d8d43a093" style="width: 100.0%; height: 100.0%;">Piazza di Spagna - Furto</div>`)[0];
+                popup_8d0e043c69f22e6cb012fe767deaf379.setContent(html_686647e3cc583f8a04c47d2d8d43a093);
+            
+        
+
+        marker_06f2317e2d6da72d82733537a3e41dfd.bindPopup(popup_8d0e043c69f22e6cb012fe767deaf379)
+        ;
+
+        
+    
+    
+            var marker_14057f176e0887bf613d5fbd62734b29 = L.marker(
+                [41.9105, 12.4762],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_72edbff075842333cbb8aeb07cb0fa41 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e6a53012cfbedb98939e95c5d5c3ad06 = $(`<div id="html_e6a53012cfbedb98939e95c5d5c3ad06" style="width: 100.0%; height: 100.0%;">Piazza del Popolo - Aggressione</div>`)[0];
+                popup_72edbff075842333cbb8aeb07cb0fa41.setContent(html_e6a53012cfbedb98939e95c5d5c3ad06);
+            
+        
+
+        marker_14057f176e0887bf613d5fbd62734b29.bindPopup(popup_72edbff075842333cbb8aeb07cb0fa41)
+        ;
+
+        
+    
+    
+            var marker_36325bd979e3039f62c12c0c8099967d = L.marker(
+                [41.896, 12.4716],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_fa4006494e6419952eb9b33f8874b70f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_df270a4cabcd073854d683ed39e58552 = $(`<div id="html_df270a4cabcd073854d683ed39e58552" style="width: 100.0%; height: 100.0%;">Piazza Farnese - Furto</div>`)[0];
+                popup_fa4006494e6419952eb9b33f8874b70f.setContent(html_df270a4cabcd073854d683ed39e58552);
+            
+        
+
+        marker_36325bd979e3039f62c12c0c8099967d.bindPopup(popup_fa4006494e6419952eb9b33f8874b70f)
+        ;
+
+        
+    
+    
+            var marker_d81bbe8df77163463bb95fd13925191c = L.marker(
+                [41.9009, 12.4801],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_34bb34842f5f0ba86e32c14a26afbcab = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3b77beba22d190f195bd0166bad21121 = $(`<div id="html_3b77beba22d190f195bd0166bad21121" style="width: 100.0%; height: 100.0%;">Piazza Colonna - Furto</div>`)[0];
+                popup_34bb34842f5f0ba86e32c14a26afbcab.setContent(html_3b77beba22d190f195bd0166bad21121);
+            
+        
+
+        marker_d81bbe8df77163463bb95fd13925191c.bindPopup(popup_34bb34842f5f0ba86e32c14a26afbcab)
+        ;
+
+        
+    
+    
+            var marker_113e36961c02e2a6084ee4c4e79ba1d7 = L.marker(
+                [41.8996, 12.4804],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_fa7fc756a15af0b2c23b52b95e541b0b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_995f2f2fe224f1a9bf427db86ba21134 = $(`<div id="html_995f2f2fe224f1a9bf427db86ba21134" style="width: 100.0%; height: 100.0%;">Piazza di Pietra - Aggressione</div>`)[0];
+                popup_fa7fc756a15af0b2c23b52b95e541b0b.setContent(html_995f2f2fe224f1a9bf427db86ba21134);
+            
+        
+
+        marker_113e36961c02e2a6084ee4c4e79ba1d7.bindPopup(popup_fa7fc756a15af0b2c23b52b95e541b0b)
+        ;
+
+        
+    
+    
+            var marker_8fdb06ecf67681fc74fc4639a895d9aa = L.marker(
+                [41.8956, 12.4827],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_3886ebd0b93b4595dd13977ef8247b8a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_71cbc48752251277e06910c0964196c0 = $(`<div id="html_71cbc48752251277e06910c0964196c0" style="width: 100.0%; height: 100.0%;">Piazza Venezia - Furto</div>`)[0];
+                popup_3886ebd0b93b4595dd13977ef8247b8a.setContent(html_71cbc48752251277e06910c0964196c0);
+            
+        
+
+        marker_8fdb06ecf67681fc74fc4639a895d9aa.bindPopup(popup_3886ebd0b93b4595dd13977ef8247b8a)
+        ;
+
+        
+    
+    
+            var marker_3f8036f5e5fcbf652614a9bd9d7bf6f1 = L.marker(
+                [41.9021, 12.4955],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_6ac6410587126bc53931dc70de43cc0e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fd2d28c46a0d74af53cf43f993b29b4f = $(`<div id="html_fd2d28c46a0d74af53cf43f993b29b4f" style="width: 100.0%; height: 100.0%;">Piazza della Repubblica - Omicidio</div>`)[0];
+                popup_6ac6410587126bc53931dc70de43cc0e.setContent(html_fd2d28c46a0d74af53cf43f993b29b4f);
+            
+        
+
+        marker_3f8036f5e5fcbf652614a9bd9d7bf6f1.bindPopup(popup_6ac6410587126bc53931dc70de43cc0e)
+        ;
+
+        
+    
+    
+            var marker_6e01bd404b1f4d793fc5e142e9a9d1be = L.marker(
+                [41.9037, 12.4883],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_c5fb655554e7dac8b8e297a12530eb1e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_34ab5251fb35d0a5606207c5d9566e76 = $(`<div id="html_34ab5251fb35d0a5606207c5d9566e76" style="width: 100.0%; height: 100.0%;">Piazza Barberini - Furto</div>`)[0];
+                popup_c5fb655554e7dac8b8e297a12530eb1e.setContent(html_34ab5251fb35d0a5606207c5d9566e76);
+            
+        
+
+        marker_6e01bd404b1f4d793fc5e142e9a9d1be.bindPopup(popup_c5fb655554e7dac8b8e297a12530eb1e)
+        ;
+
+        
+    
+    
+            var marker_3b3ba5c74b2953de7ce38d9747351bdf = L.marker(
+                [41.8921, 12.4825],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_2085c9354c6f80a681308c49ab59a00e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a192db38c61532cafe8b6aefbc810f6d = $(`<div id="html_a192db38c61532cafe8b6aefbc810f6d" style="width: 100.0%; height: 100.0%;">Piazza del Campidoglio - Aggressione</div>`)[0];
+                popup_2085c9354c6f80a681308c49ab59a00e.setContent(html_a192db38c61532cafe8b6aefbc810f6d);
+            
+        
+
+        marker_3b3ba5c74b2953de7ce38d9747351bdf.bindPopup(popup_2085c9354c6f80a681308c49ab59a00e)
+        ;
+
+        
+    
+    
+            var marker_a024f57cfe6654b7a62abb6af12d9307 = L.marker(
+                [41.8986, 12.4776],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_e244d1b516e510a5f5e7ee8c1d50025e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a5508544f04af075d665cdd36ddd4197 = $(`<div id="html_a5508544f04af075d665cdd36ddd4197" style="width: 100.0%; height: 100.0%;">Piazza della Minerva - Furto</div>`)[0];
+                popup_e244d1b516e510a5f5e7ee8c1d50025e.setContent(html_a5508544f04af075d665cdd36ddd4197);
+            
+        
+
+        marker_a024f57cfe6654b7a62abb6af12d9307.bindPopup(popup_e244d1b516e510a5f5e7ee8c1d50025e)
+        ;
+
+        
+    
+    
+            var marker_c1e7f3c34e3b8eeac227c6dd6118ee72 = L.marker(
+                [41.8985, 12.4742],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_70661ff65300356b55c158fcf0806d1e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a6291e590b8115dbd16bfd0506885156 = $(`<div id="html_a6291e590b8115dbd16bfd0506885156" style="width: 100.0%; height: 100.0%;">Piazza Navona - Furto</div>`)[0];
+                popup_70661ff65300356b55c158fcf0806d1e.setContent(html_a6291e590b8115dbd16bfd0506885156);
+            
+        
+
+        marker_c1e7f3c34e3b8eeac227c6dd6118ee72.bindPopup(popup_70661ff65300356b55c158fcf0806d1e)
+        ;
+
+        
+    
+    
+            var marker_144da609c0081b34ee3e90120150bf6f = L.marker(
+                [41.9062, 12.4829],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_4c47c799823de9bc5b8f08b67ef35239 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_124d168a4f18a980e66cfaf5fcf61a40 = $(`<div id="html_124d168a4f18a980e66cfaf5fcf61a40" style="width: 100.0%; height: 100.0%;">Piazza di Spagna - Omicidio</div>`)[0];
+                popup_4c47c799823de9bc5b8f08b67ef35239.setContent(html_124d168a4f18a980e66cfaf5fcf61a40);
+            
+        
+
+        marker_144da609c0081b34ee3e90120150bf6f.bindPopup(popup_4c47c799823de9bc5b8f08b67ef35239)
+        ;
+
+        
+    
+    
+            var marker_fa3b9b8845193d43d082dbe011f2e3ba = L.marker(
+                [41.9104, 12.4764],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_c93fe2b839d0e40faa4568a4a509146d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_32890373f5afc6bbf8e83de047d833a2 = $(`<div id="html_32890373f5afc6bbf8e83de047d833a2" style="width: 100.0%; height: 100.0%;">Piazza del Popolo - Furto</div>`)[0];
+                popup_c93fe2b839d0e40faa4568a4a509146d.setContent(html_32890373f5afc6bbf8e83de047d833a2);
+            
+        
+
+        marker_fa3b9b8845193d43d082dbe011f2e3ba.bindPopup(popup_c93fe2b839d0e40faa4568a4a509146d)
+        ;
+
+        
+    
+    
+            var marker_8be02b7efdf012d3ef3684cfdf975e84 = L.marker(
+                [41.8962, 12.4714],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_1d16fc7b92f83181763a21f9e240d71a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1b37885d04912a39e382c394535b90ae = $(`<div id="html_1b37885d04912a39e382c394535b90ae" style="width: 100.0%; height: 100.0%;">Piazza Farnese - Furto</div>`)[0];
+                popup_1d16fc7b92f83181763a21f9e240d71a.setContent(html_1b37885d04912a39e382c394535b90ae);
+            
+        
+
+        marker_8be02b7efdf012d3ef3684cfdf975e84.bindPopup(popup_1d16fc7b92f83181763a21f9e240d71a)
+        ;
+
+        
+    
+    
+            var marker_d49aadfcf8a96701e2b1f86e20c840d5 = L.marker(
+                [41.9008, 12.4803],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_b68a46ca76ceeb3b283cfeecc840777c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_de34c453d926ce8a75d0e0427eb1b724 = $(`<div id="html_de34c453d926ce8a75d0e0427eb1b724" style="width: 100.0%; height: 100.0%;">Piazza Colonna - Aggressione</div>`)[0];
+                popup_b68a46ca76ceeb3b283cfeecc840777c.setContent(html_de34c453d926ce8a75d0e0427eb1b724);
+            
+        
+
+        marker_d49aadfcf8a96701e2b1f86e20c840d5.bindPopup(popup_b68a46ca76ceeb3b283cfeecc840777c)
+        ;
+
+        
+    
+    
+            var marker_8c9595725dd64303668fa469e109070d = L.marker(
+                [41.8994, 12.4805],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_d46abe861db8af9949fde94c4d716c06 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e92fc2b5bdda64597a62219e3f4e9ed3 = $(`<div id="html_e92fc2b5bdda64597a62219e3f4e9ed3" style="width: 100.0%; height: 100.0%;">Piazza di Pietra - Furto</div>`)[0];
+                popup_d46abe861db8af9949fde94c4d716c06.setContent(html_e92fc2b5bdda64597a62219e3f4e9ed3);
+            
+        
+
+        marker_8c9595725dd64303668fa469e109070d.bindPopup(popup_d46abe861db8af9949fde94c4d716c06)
+        ;
+
+        
+    
+    
+            var marker_118439c59ccd617e8f7271449acb4e2e = L.marker(
+                [41.8955, 12.4828],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_409882512bc73ee557e6af5b614f4aea = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d472fe7c7efe1fe4a257b372c1a16598 = $(`<div id="html_d472fe7c7efe1fe4a257b372c1a16598" style="width: 100.0%; height: 100.0%;">Piazza Venezia - Furto</div>`)[0];
+                popup_409882512bc73ee557e6af5b614f4aea.setContent(html_d472fe7c7efe1fe4a257b372c1a16598);
+            
+        
+
+        marker_118439c59ccd617e8f7271449acb4e2e.bindPopup(popup_409882512bc73ee557e6af5b614f4aea)
+        ;
+
+        
+    
+    
+            var marker_8586a3c16eb942eaf106acae2e4c8f8f = L.marker(
+                [41.902, 12.4954],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_d89a781b8ac31625af8d386490786d1d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_13147934e8ea08fd8ad9ad49e1db5e92 = $(`<div id="html_13147934e8ea08fd8ad9ad49e1db5e92" style="width: 100.0%; height: 100.0%;">Piazza della Repubblica - Aggressione</div>`)[0];
+                popup_d89a781b8ac31625af8d386490786d1d.setContent(html_13147934e8ea08fd8ad9ad49e1db5e92);
+            
+        
+
+        marker_8586a3c16eb942eaf106acae2e4c8f8f.bindPopup(popup_d89a781b8ac31625af8d386490786d1d)
+        ;
+
+        
+    
+    
+            var marker_c63848f939fdd7f0c716e316d5733ddc = L.marker(
+                [41.9036, 12.4885],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_f881ddf32112bb906e2343a342c45966 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cf4e4287ad8cbfc2b859d6c2981afdce = $(`<div id="html_cf4e4287ad8cbfc2b859d6c2981afdce" style="width: 100.0%; height: 100.0%;">Piazza Barberini - Furto</div>`)[0];
+                popup_f881ddf32112bb906e2343a342c45966.setContent(html_cf4e4287ad8cbfc2b859d6c2981afdce);
+            
+        
+
+        marker_c63848f939fdd7f0c716e316d5733ddc.bindPopup(popup_f881ddf32112bb906e2343a342c45966)
+        ;
+
+        
+    
+    
+            var marker_966c334ab700b8ca43281c59d7403921 = L.marker(
+                [41.8924, 12.4828],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_19b1d431b34748b1cbe0916feb4589a1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5a7f10c4cb5b2b55c034865e389b667e = $(`<div id="html_5a7f10c4cb5b2b55c034865e389b667e" style="width: 100.0%; height: 100.0%;">Piazza del Campidoglio - Omicidio</div>`)[0];
+                popup_19b1d431b34748b1cbe0916feb4589a1.setContent(html_5a7f10c4cb5b2b55c034865e389b667e);
+            
+        
+
+        marker_966c334ab700b8ca43281c59d7403921.bindPopup(popup_19b1d431b34748b1cbe0916feb4589a1)
+        ;
+
+        
+    
+    
+            var marker_e607db56b4405b310dec1d77ae672c76 = L.marker(
+                [41.8989, 12.4773],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_411f1af772804dec73d093d262c013e7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_36b2dc4b6f45b19abc57252ccf0536c5 = $(`<div id="html_36b2dc4b6f45b19abc57252ccf0536c5" style="width: 100.0%; height: 100.0%;">Piazza della Minerva - Furto</div>`)[0];
+                popup_411f1af772804dec73d093d262c013e7.setContent(html_36b2dc4b6f45b19abc57252ccf0536c5);
+            
+        
+
+        marker_e607db56b4405b310dec1d77ae672c76.bindPopup(popup_411f1af772804dec73d093d262c013e7)
+        ;
+
+        
+    
+    
+            var marker_31099b6b5c6d6056e736db4e03813d57 = L.marker(
+                [41.8982, 12.4743],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_3759657176136a496c5a56ba226e0c90 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f9747a1a151617f06f9783ec172523cc = $(`<div id="html_f9747a1a151617f06f9783ec172523cc" style="width: 100.0%; height: 100.0%;">Piazza Navona - Aggressione</div>`)[0];
+                popup_3759657176136a496c5a56ba226e0c90.setContent(html_f9747a1a151617f06f9783ec172523cc);
+            
+        
+
+        marker_31099b6b5c6d6056e736db4e03813d57.bindPopup(popup_3759657176136a496c5a56ba226e0c90)
+        ;
+
+        
+    
+    
+            var marker_489a8454b8d82a16371f3439da54cbcc = L.marker(
+                [41.9061, 12.4831],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_722ca9f115f41470f610b09bae421875 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_31a368b6c5ccf67446128b050c4ed39e = $(`<div id="html_31a368b6c5ccf67446128b050c4ed39e" style="width: 100.0%; height: 100.0%;">Piazza di Spagna - Furto</div>`)[0];
+                popup_722ca9f115f41470f610b09bae421875.setContent(html_31a368b6c5ccf67446128b050c4ed39e);
+            
+        
+
+        marker_489a8454b8d82a16371f3439da54cbcc.bindPopup(popup_722ca9f115f41470f610b09bae421875)
+        ;
+
+        
+    
+    
+            var marker_ee7d90050511fa2471ce685097e2c9d8 = L.marker(
+                [41.9103, 12.4765],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_cc919274eb85e8c63a2e8c04578b6bc1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b9524af36b7f674c19c538770699574b = $(`<div id="html_b9524af36b7f674c19c538770699574b" style="width: 100.0%; height: 100.0%;">Piazza del Popolo - Furto</div>`)[0];
+                popup_cc919274eb85e8c63a2e8c04578b6bc1.setContent(html_b9524af36b7f674c19c538770699574b);
+            
+        
+
+        marker_ee7d90050511fa2471ce685097e2c9d8.bindPopup(popup_cc919274eb85e8c63a2e8c04578b6bc1)
+        ;
+
+        
+    
+    
+            var marker_325733b8b406291dac2ec98ad1e1a835 = L.marker(
+                [41.8963, 12.4713],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_447f0b44f125e74ee040f8645640f534 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_92bf0dbb4f98eafbf63cd8145e0e8612 = $(`<div id="html_92bf0dbb4f98eafbf63cd8145e0e8612" style="width: 100.0%; height: 100.0%;">Piazza Farnese - Omicidio</div>`)[0];
+                popup_447f0b44f125e74ee040f8645640f534.setContent(html_92bf0dbb4f98eafbf63cd8145e0e8612);
+            
+        
+
+        marker_325733b8b406291dac2ec98ad1e1a835.bindPopup(popup_447f0b44f125e74ee040f8645640f534)
+        ;
+
+        
+    
+    
+            var marker_764dde850a9baea8f24be4442a1b9937 = L.marker(
+                [41.9007, 12.4802],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_54bdb43c0ef34c79ebc666765be96633 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_74a75d28e34264feaf3ebda1daba36ae = $(`<div id="html_74a75d28e34264feaf3ebda1daba36ae" style="width: 100.0%; height: 100.0%;">Piazza Colonna - Furto</div>`)[0];
+                popup_54bdb43c0ef34c79ebc666765be96633.setContent(html_74a75d28e34264feaf3ebda1daba36ae);
+            
+        
+
+        marker_764dde850a9baea8f24be4442a1b9937.bindPopup(popup_54bdb43c0ef34c79ebc666765be96633)
+        ;
+
+        
+    
+    
+            var marker_38fe3143c7f01eb798b3b97b9a051e90 = L.marker(
+                [41.8993, 12.4806],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_e7dde1ec20569e0c164bb9295f08e60a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bc57c67a6afcd1676724f249a76f4b65 = $(`<div id="html_bc57c67a6afcd1676724f249a76f4b65" style="width: 100.0%; height: 100.0%;">Piazza di Pietra - Aggressione</div>`)[0];
+                popup_e7dde1ec20569e0c164bb9295f08e60a.setContent(html_bc57c67a6afcd1676724f249a76f4b65);
+            
+        
+
+        marker_38fe3143c7f01eb798b3b97b9a051e90.bindPopup(popup_e7dde1ec20569e0c164bb9295f08e60a)
+        ;
+
+        
+    
+    
+            var marker_b4e4e264db366d4d8c9622c4f65ba1d5 = L.marker(
+                [41.8954, 12.4829],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_5ca044593329758bcc582c787d352493 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_857bdcd8e58fa12a8d67e4e6f8665e5b = $(`<div id="html_857bdcd8e58fa12a8d67e4e6f8665e5b" style="width: 100.0%; height: 100.0%;">Piazza Venezia - Furto</div>`)[0];
+                popup_5ca044593329758bcc582c787d352493.setContent(html_857bdcd8e58fa12a8d67e4e6f8665e5b);
+            
+        
+
+        marker_b4e4e264db366d4d8c9622c4f65ba1d5.bindPopup(popup_5ca044593329758bcc582c787d352493)
+        ;
+
+        
+    
+    
+            var marker_7ef10cae289ba97a8a46cb663d52b9a8 = L.marker(
+                [41.9019, 12.4953],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_bf0aeda4ef87f66905043f96505588af = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dc9d97e663afd7faff169fe5c1c4afbb = $(`<div id="html_dc9d97e663afd7faff169fe5c1c4afbb" style="width: 100.0%; height: 100.0%;">Piazza della Repubblica - Furto</div>`)[0];
+                popup_bf0aeda4ef87f66905043f96505588af.setContent(html_dc9d97e663afd7faff169fe5c1c4afbb);
+            
+        
+
+        marker_7ef10cae289ba97a8a46cb663d52b9a8.bindPopup(popup_bf0aeda4ef87f66905043f96505588af)
+        ;
+
+        
+    
+    
+            var marker_a64032c92aeb2e3eeb65ed753e842de1 = L.marker(
+                [41.9035, 12.4884],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_164909cf64e0101ee6dfd9e8a62c91c3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_efdbe1c33e39842b3912e5c75341b8f0 = $(`<div id="html_efdbe1c33e39842b3912e5c75341b8f0" style="width: 100.0%; height: 100.0%;">Piazza Barberini - Aggressione</div>`)[0];
+                popup_164909cf64e0101ee6dfd9e8a62c91c3.setContent(html_efdbe1c33e39842b3912e5c75341b8f0);
+            
+        
+
+        marker_a64032c92aeb2e3eeb65ed753e842de1.bindPopup(popup_164909cf64e0101ee6dfd9e8a62c91c3)
+        ;
+
+        
+    
+    
+            var marker_7e31242bb6097423abd2ce9f6ba102f4 = L.marker(
+                [41.8925, 12.4829],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_86915a97b0731b0894ea4a9529ad6927 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1a37389fa3ca1ade3db44c1004ffc0d8 = $(`<div id="html_1a37389fa3ca1ade3db44c1004ffc0d8" style="width: 100.0%; height: 100.0%;">Piazza del Campidoglio - Furto</div>`)[0];
+                popup_86915a97b0731b0894ea4a9529ad6927.setContent(html_1a37389fa3ca1ade3db44c1004ffc0d8);
+            
+        
+
+        marker_7e31242bb6097423abd2ce9f6ba102f4.bindPopup(popup_86915a97b0731b0894ea4a9529ad6927)
+        ;
+
+        
+    
+    
+            var marker_190e69a0fadea73f1d959e7f8d0272cd = L.marker(
+                [41.899, 12.4772],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_8684f93a3787b812563859a45dce3b9e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d482326a683872824c851d3c66eace6f = $(`<div id="html_d482326a683872824c851d3c66eace6f" style="width: 100.0%; height: 100.0%;">Piazza della Minerva - Furto</div>`)[0];
+                popup_8684f93a3787b812563859a45dce3b9e.setContent(html_d482326a683872824c851d3c66eace6f);
+            
+        
+
+        marker_190e69a0fadea73f1d959e7f8d0272cd.bindPopup(popup_8684f93a3787b812563859a45dce3b9e)
+        ;
+
+        
+    
+    
+            var marker_fea44b39a00a2629d7572faca88953f3 = L.marker(
+                [41.8983, 12.4744],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_dcc53cdd870a3f5bc5df3eef614f68dd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dd0e74e20edcdf2d18e6c709c504b582 = $(`<div id="html_dd0e74e20edcdf2d18e6c709c504b582" style="width: 100.0%; height: 100.0%;">Piazza Navona - Omicidio</div>`)[0];
+                popup_dcc53cdd870a3f5bc5df3eef614f68dd.setContent(html_dd0e74e20edcdf2d18e6c709c504b582);
+            
+        
+
+        marker_fea44b39a00a2629d7572faca88953f3.bindPopup(popup_dcc53cdd870a3f5bc5df3eef614f68dd)
+        ;
+
+        
+    
+    
+            var marker_1c6b641a71298f616b9d1f16e2892bfb = L.marker(
+                [41.906, 12.4832],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_7127da21bc237f8d814b9afe6087bb17 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9fadc031b691b866c1585a3fdd073ed2 = $(`<div id="html_9fadc031b691b866c1585a3fdd073ed2" style="width: 100.0%; height: 100.0%;">Piazza di Spagna - Furto</div>`)[0];
+                popup_7127da21bc237f8d814b9afe6087bb17.setContent(html_9fadc031b691b866c1585a3fdd073ed2);
+            
+        
+
+        marker_1c6b641a71298f616b9d1f16e2892bfb.bindPopup(popup_7127da21bc237f8d814b9afe6087bb17)
+        ;
+
+        
+    
+    
+            var marker_9c7cf95a224c4938961b4a21645312bd = L.marker(
+                [41.9102, 12.4766],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_696312dea3958a145bbc51e8e03f54bc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1db4d64bfbd4378a51e3a30461146899 = $(`<div id="html_1db4d64bfbd4378a51e3a30461146899" style="width: 100.0%; height: 100.0%;">Piazza del Popolo - Aggressione</div>`)[0];
+                popup_696312dea3958a145bbc51e8e03f54bc.setContent(html_1db4d64bfbd4378a51e3a30461146899);
+            
+        
+
+        marker_9c7cf95a224c4938961b4a21645312bd.bindPopup(popup_696312dea3958a145bbc51e8e03f54bc)
+        ;
+
+        
+    
+    
+            var marker_7d26dfd74f9286677b80c7e70b4f0dd7 = L.marker(
+                [41.8964, 12.4712],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_4d22bfcd124502d7a358c68388e453bd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_62868b56abaa47cba0feaf83b8fde039 = $(`<div id="html_62868b56abaa47cba0feaf83b8fde039" style="width: 100.0%; height: 100.0%;">Piazza Farnese - Furto</div>`)[0];
+                popup_4d22bfcd124502d7a358c68388e453bd.setContent(html_62868b56abaa47cba0feaf83b8fde039);
+            
+        
+
+        marker_7d26dfd74f9286677b80c7e70b4f0dd7.bindPopup(popup_4d22bfcd124502d7a358c68388e453bd)
+        ;
+
+        
+    
+    
+            var marker_d630b854785730ee5571562bc5a649a7 = L.marker(
+                [41.9006, 12.4801],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_63853389138d8ab941160b89b80a048e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_260724d9b29ee884c66d64a0ab01010a = $(`<div id="html_260724d9b29ee884c66d64a0ab01010a" style="width: 100.0%; height: 100.0%;">Piazza Colonna - Furto</div>`)[0];
+                popup_63853389138d8ab941160b89b80a048e.setContent(html_260724d9b29ee884c66d64a0ab01010a);
+            
+        
+
+        marker_d630b854785730ee5571562bc5a649a7.bindPopup(popup_63853389138d8ab941160b89b80a048e)
+        ;
+
+        
+    
+    
+            var marker_07c79ea3a0cdb09a4f9954889f0778a1 = L.marker(
+                [41.8992, 12.4807],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_63ac74638f210bccd083c6b746e6da82 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d301666a08093676a96840f790897cdd = $(`<div id="html_d301666a08093676a96840f790897cdd" style="width: 100.0%; height: 100.0%;">Piazza di Pietra - Aggressione</div>`)[0];
+                popup_63ac74638f210bccd083c6b746e6da82.setContent(html_d301666a08093676a96840f790897cdd);
+            
+        
+
+        marker_07c79ea3a0cdb09a4f9954889f0778a1.bindPopup(popup_63ac74638f210bccd083c6b746e6da82)
+        ;
+
+        
+    
+    
+            var marker_0bd4e70db0b634927c7ca1b3b7c3e3ba = L.marker(
+                [41.8953, 12.4829],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_0c485c63651bcff1ab22c8f1ffd9c5b5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f9a841578519dbe0ac0bf44545da265f = $(`<div id="html_f9a841578519dbe0ac0bf44545da265f" style="width: 100.0%; height: 100.0%;">Piazza Venezia - Furto</div>`)[0];
+                popup_0c485c63651bcff1ab22c8f1ffd9c5b5.setContent(html_f9a841578519dbe0ac0bf44545da265f);
+            
+        
+
+        marker_0bd4e70db0b634927c7ca1b3b7c3e3ba.bindPopup(popup_0c485c63651bcff1ab22c8f1ffd9c5b5)
+        ;
+
+        
+    
+    
+            var marker_13e23b484724715d8994ae47df2d8e12 = L.marker(
+                [41.9018, 12.4952],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_f4c04f7d8ed36cf540087d09036a51ad = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_968d1c74e11625ac6e3e8c5915e48679 = $(`<div id="html_968d1c74e11625ac6e3e8c5915e48679" style="width: 100.0%; height: 100.0%;">Piazza della Repubblica - Omicidio</div>`)[0];
+                popup_f4c04f7d8ed36cf540087d09036a51ad.setContent(html_968d1c74e11625ac6e3e8c5915e48679);
+            
+        
+
+        marker_13e23b484724715d8994ae47df2d8e12.bindPopup(popup_f4c04f7d8ed36cf540087d09036a51ad)
+        ;
+
+        
+    
+    
+            var marker_7aed010b853d32c206a472b3b72d1f3c = L.marker(
+                [41.9034, 12.4883],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_26f5ee96d5e630b9f19f14f09186f77e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0ae84a4615e30e6ef84a4e3f3229fa76 = $(`<div id="html_0ae84a4615e30e6ef84a4e3f3229fa76" style="width: 100.0%; height: 100.0%;">Piazza Barberini - Furto</div>`)[0];
+                popup_26f5ee96d5e630b9f19f14f09186f77e.setContent(html_0ae84a4615e30e6ef84a4e3f3229fa76);
+            
+        
+
+        marker_7aed010b853d32c206a472b3b72d1f3c.bindPopup(popup_26f5ee96d5e630b9f19f14f09186f77e)
+        ;
+
+        
+    
+    
+            var marker_94a4401cba913524eb97fce3db8edb93 = L.marker(
+                [41.8926, 12.483],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_920e7891df508e2f2cb601c45797b183 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_34af44044ac254b1f7d69feb13f4ee63 = $(`<div id="html_34af44044ac254b1f7d69feb13f4ee63" style="width: 100.0%; height: 100.0%;">Piazza del Campidoglio - Aggressione</div>`)[0];
+                popup_920e7891df508e2f2cb601c45797b183.setContent(html_34af44044ac254b1f7d69feb13f4ee63);
+            
+        
+
+        marker_94a4401cba913524eb97fce3db8edb93.bindPopup(popup_920e7891df508e2f2cb601c45797b183)
+        ;
+
+        
+    
+    
+            var marker_00e62ccc14c636174afa753903ad7e7f = L.marker(
+                [41.8991, 12.4771],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_c899d9a4ccd214c6ae94395e62b8b9ce = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fe67574443a76350ab12691601efb9dd = $(`<div id="html_fe67574443a76350ab12691601efb9dd" style="width: 100.0%; height: 100.0%;">Piazza della Minerva - Furto</div>`)[0];
+                popup_c899d9a4ccd214c6ae94395e62b8b9ce.setContent(html_fe67574443a76350ab12691601efb9dd);
+            
+        
+
+        marker_00e62ccc14c636174afa753903ad7e7f.bindPopup(popup_c899d9a4ccd214c6ae94395e62b8b9ce)
+        ;
+
+        
+    
+    
+            var marker_4a69da703d6038a5dd0780a30d829050 = L.marker(
+                [41.8984, 12.4745],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_1210226255026c0b12fe838c2cf2dc95 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b4a702d00dfe24faf688c10a31ef4cae = $(`<div id="html_b4a702d00dfe24faf688c10a31ef4cae" style="width: 100.0%; height: 100.0%;">Piazza Navona - Furto</div>`)[0];
+                popup_1210226255026c0b12fe838c2cf2dc95.setContent(html_b4a702d00dfe24faf688c10a31ef4cae);
+            
+        
+
+        marker_4a69da703d6038a5dd0780a30d829050.bindPopup(popup_1210226255026c0b12fe838c2cf2dc95)
+        ;
+
+        
+    
+    
+            var marker_ece0cd35d87dcb986da38a7ee440f795 = L.marker(
+                [41.9059, 12.4833],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_af88bd2fbd7b438b1b5b87084174abb4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8dc0af6e6034070710730c9057249f12 = $(`<div id="html_8dc0af6e6034070710730c9057249f12" style="width: 100.0%; height: 100.0%;">Piazza di Spagna - Omicidio</div>`)[0];
+                popup_af88bd2fbd7b438b1b5b87084174abb4.setContent(html_8dc0af6e6034070710730c9057249f12);
+            
+        
+
+        marker_ece0cd35d87dcb986da38a7ee440f795.bindPopup(popup_af88bd2fbd7b438b1b5b87084174abb4)
+        ;
+
+        
+    
+    
+            var marker_413434e6223b45e7146c45c73ebe4354 = L.marker(
+                [41.9101, 12.4767],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_2969b8a5ec672877507497a60188104f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fa0b12ab90a91acc9a947fcf9d56fd22 = $(`<div id="html_fa0b12ab90a91acc9a947fcf9d56fd22" style="width: 100.0%; height: 100.0%;">Piazza del Popolo - Furto</div>`)[0];
+                popup_2969b8a5ec672877507497a60188104f.setContent(html_fa0b12ab90a91acc9a947fcf9d56fd22);
+            
+        
+
+        marker_413434e6223b45e7146c45c73ebe4354.bindPopup(popup_2969b8a5ec672877507497a60188104f)
+        ;
+
+        
+    
+    
+            var marker_c7450c9ab4f70099a065b31ed248ee30 = L.marker(
+                [41.8965, 12.4711],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_cb484bd65a1151989a537545d4bb5bf2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dc558246a1580d2bc302f729bb9b1b80 = $(`<div id="html_dc558246a1580d2bc302f729bb9b1b80" style="width: 100.0%; height: 100.0%;">Piazza Farnese - Furto</div>`)[0];
+                popup_cb484bd65a1151989a537545d4bb5bf2.setContent(html_dc558246a1580d2bc302f729bb9b1b80);
+            
+        
+
+        marker_c7450c9ab4f70099a065b31ed248ee30.bindPopup(popup_cb484bd65a1151989a537545d4bb5bf2)
+        ;
+
+        
+    
+    
+            var marker_8b77d252c52f2aa43c41539828c8d227 = L.marker(
+                [41.9005, 12.48],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_285e93d8b865e302357b79e07269fe08 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fa499538edafed35ad45425479c7fe28 = $(`<div id="html_fa499538edafed35ad45425479c7fe28" style="width: 100.0%; height: 100.0%;">Piazza Colonna - Aggressione</div>`)[0];
+                popup_285e93d8b865e302357b79e07269fe08.setContent(html_fa499538edafed35ad45425479c7fe28);
+            
+        
+
+        marker_8b77d252c52f2aa43c41539828c8d227.bindPopup(popup_285e93d8b865e302357b79e07269fe08)
+        ;
+
+        
+    
+    
+            var marker_d71254a20384153659b2ff6477ee3e67 = L.marker(
+                [41.8991, 12.4808],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_6ebfefc0eba428fc82b0aa9a1dbe332b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b1e2b3e7caba425faa6f02951c11ccdc = $(`<div id="html_b1e2b3e7caba425faa6f02951c11ccdc" style="width: 100.0%; height: 100.0%;">Piazza di Pietra - Furto</div>`)[0];
+                popup_6ebfefc0eba428fc82b0aa9a1dbe332b.setContent(html_b1e2b3e7caba425faa6f02951c11ccdc);
+            
+        
+
+        marker_d71254a20384153659b2ff6477ee3e67.bindPopup(popup_6ebfefc0eba428fc82b0aa9a1dbe332b)
+        ;
+
+        
+    
+    
+            var marker_176bf8aa6c0acc34fddd822f5cecd97d = L.marker(
+                [41.8952, 12.4829],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_b3a4508e4989e9b1381021644004d3d4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ffc02359206f8e3624a66834ba89ce22 = $(`<div id="html_ffc02359206f8e3624a66834ba89ce22" style="width: 100.0%; height: 100.0%;">Piazza Venezia - Furto</div>`)[0];
+                popup_b3a4508e4989e9b1381021644004d3d4.setContent(html_ffc02359206f8e3624a66834ba89ce22);
+            
+        
+
+        marker_176bf8aa6c0acc34fddd822f5cecd97d.bindPopup(popup_b3a4508e4989e9b1381021644004d3d4)
+        ;
+
+        
+    
+    
+            var marker_4d526959d4d9278deb64e6d158c4523c = L.marker(
+                [41.9017, 12.4951],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_5aabf723e1fcf569f0c71179929d9a7d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bfe782f3c73bf297635434ac78de07bb = $(`<div id="html_bfe782f3c73bf297635434ac78de07bb" style="width: 100.0%; height: 100.0%;">Piazza della Repubblica - Aggressione</div>`)[0];
+                popup_5aabf723e1fcf569f0c71179929d9a7d.setContent(html_bfe782f3c73bf297635434ac78de07bb);
+            
+        
+
+        marker_4d526959d4d9278deb64e6d158c4523c.bindPopup(popup_5aabf723e1fcf569f0c71179929d9a7d)
+        ;
+
+        
+    
+    
+            var marker_ded224c114f45381a46f21beeb0a16c3 = L.marker(
+                [41.9033, 12.4882],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_73d75feeca34b38b78ed6978d34e194c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8fcc91471ffd57da398111cf018d0640 = $(`<div id="html_8fcc91471ffd57da398111cf018d0640" style="width: 100.0%; height: 100.0%;">Piazza Barberini - Furto</div>`)[0];
+                popup_73d75feeca34b38b78ed6978d34e194c.setContent(html_8fcc91471ffd57da398111cf018d0640);
+            
+        
+
+        marker_ded224c114f45381a46f21beeb0a16c3.bindPopup(popup_73d75feeca34b38b78ed6978d34e194c)
+        ;
+
+        
+    
+    
+            var marker_101a33071251f5cb171557a9a457f15f = L.marker(
+                [41.8927, 12.4831],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_c6b6fe9268d3e96ff776b8a24239d7ab = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_10c80089b706c3c6b82dbd048e1451ef = $(`<div id="html_10c80089b706c3c6b82dbd048e1451ef" style="width: 100.0%; height: 100.0%;">Piazza del Campidoglio - Omicidio</div>`)[0];
+                popup_c6b6fe9268d3e96ff776b8a24239d7ab.setContent(html_10c80089b706c3c6b82dbd048e1451ef);
+            
+        
+
+        marker_101a33071251f5cb171557a9a457f15f.bindPopup(popup_c6b6fe9268d3e96ff776b8a24239d7ab)
+        ;
+
+        
+    
+    
+            var marker_ae135359821ad3d8752d3f782e543b32 = L.marker(
+                [41.8992, 12.477],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_fe819479a594b277053f9e859e272e94 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_934a50bfacccd49eed4b45cc4eb8f36c = $(`<div id="html_934a50bfacccd49eed4b45cc4eb8f36c" style="width: 100.0%; height: 100.0%;">Piazza della Minerva - Furto</div>`)[0];
+                popup_fe819479a594b277053f9e859e272e94.setContent(html_934a50bfacccd49eed4b45cc4eb8f36c);
+            
+        
+
+        marker_ae135359821ad3d8752d3f782e543b32.bindPopup(popup_fe819479a594b277053f9e859e272e94)
+        ;
+
+        
+    
+    
+            var marker_575d10df215e038c1caf0bc9ecc43337 = L.marker(
+                [41.8985, 12.4746],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_1bd0c88634682c423762e426fb7decf4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d64424b5b63ec19c7fbee296ae1b64e9 = $(`<div id="html_d64424b5b63ec19c7fbee296ae1b64e9" style="width: 100.0%; height: 100.0%;">Piazza Navona - Aggressione</div>`)[0];
+                popup_1bd0c88634682c423762e426fb7decf4.setContent(html_d64424b5b63ec19c7fbee296ae1b64e9);
+            
+        
+
+        marker_575d10df215e038c1caf0bc9ecc43337.bindPopup(popup_1bd0c88634682c423762e426fb7decf4)
+        ;
+
+        
+    
+    
+            var marker_2a95e4a44390cacaffd4ae36433f166a = L.marker(
+                [41.9058, 12.4834],
+                {}
+            ).addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+        var popup_4127711ec86b3b05ade55016066d3ea6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2f8158d1642878183684a490c746d90b = $(`<div id="html_2f8158d1642878183684a490c746d90b" style="width: 100.0%; height: 100.0%;">Piazza di Spagna - Furto</div>`)[0];
+                popup_4127711ec86b3b05ade55016066d3ea6.setContent(html_2f8158d1642878183684a490c746d90b);
+            
+        
+
+        marker_2a95e4a44390cacaffd4ae36433f166a.bindPopup(popup_4127711ec86b3b05ade55016066d3ea6)
+        ;
+
+        
+    
+    
+            tile_layer_1ecc25eb92024e35677d043458f5eaee.addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+    
+            heat_map_7db1e0257d4c17ac29a93ad7037807fe.addTo(map_39e7cc2fb206a7c2fc2605ee3d66c09d);
+        
+</script>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carica file CSV</title>
+</head>
+<body>
+    <h1>Carica file CSV</h1>
+    <form method="post" enctype="multipart/form-data" action="/upload">
+        <input type="file" name="file">
+        <input type="submit" value="Carica">
+    </form>
+    <br>
+    <form action="/reset" method="post">
+        <input type="submit" value="Resetta mappa">
+    </form>
+</body>
+</html>

@@ -3,20 +3,48 @@
 <head>
     <title>Mappa degli eventi criminali a Roma 2</title>
     <style>
-        body, html, #map {
+        body, html {
             height: 100%;
             margin: 0;
             padding: 0;
+            position: relative;
         }
         #map {
             width: 100%;
+            height: calc(100% - 40px); /* Sottrai l'altezza dei bottoni dalla mappa */
+        }
+        #button-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.7); /* Sfondo trasparente */
+        }
+        #button-container button {
+            margin-right: 10px;
+        }
+        #upload-button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px; /* Padding più ampio per renderlo rettangolare */
+            cursor: pointer;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <h1>Mappa degli eventi criminali a Roma</h1>
-    <p>Visualizzazione della mappa con i casi di crimine a Roma:</p>
+    <h1>Mappa degli eventi criminali a Roma 2</h1>
     <iframe id="map" src="/static2/map.html"></iframe>
-
+    <div id="button-container">
+        <form action="/reset" method="post">
+            <input type="submit" id="reset-button" value="Resetta mappa">
+        </form>
+        <form action="/upload" method="get">
+            <button id="upload-button">Carica nuovo CSV</button>
+        </form>
+    </div>
 </body>
 </html>

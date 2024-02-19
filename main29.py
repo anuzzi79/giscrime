@@ -1,22 +1,20 @@
-from flask import Flask, render_template
+import os
+from flask import Flask, render_template, request, redirect, url_for, flash
+from werkzeug.utils import secure_filename
 import folium
-import random
-from folium.plugins import HeatMap 
+from folium.plugins import HeatMap
+import csv
 
+# Definisci la variabile UPLOAD_FOLDER per una cartella temporanea
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'temp_upload')
 
-
+# Crea un'applicazione Flask
 app = Flask(__name__, static_folder='static2')
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.secret_key = 'S3gret0'  # Imposta la chiave segreta
 
-@app.route('/')
-def home():
-    # Genera un numero casuale
-    random_number = random.randint(1, 1000)
-
-    # Creazione della mappa di Folium centrata su Roma
-    m = folium.Map(location=[41.9028, 12.4964], zoom_start=12, tiles='OpenStreetMap')
-
-    # Dati sui casi di crimine a Roma
-    crimes = [
+# Dati sui casi di crimine a Roma
+initial_crimes = [
         ("Via Appia Nuova", 41.8736, 12.4834, "Furto"),
         ("Via Cavour", 41.8933, 12.4911, "Omicidio"),
         ("Via del Corso", 41.9022, 12.4809, "Aggressione"),
@@ -170,68 +168,92 @@ def home():
         ("Piazza Navona", 41.8985, 12.4746, "Aggressione"),
         ("Piazza di Spagna", 41.9058, 12.4834, "Furto"),
     ]
-    # Estrai solo le coordinate dalla lista crimes
-    crime_coordinates = [[crime[1], crime[2]] for crime in crimes]
 
-    # Definizione della mappa di colore personalizzata
-    colormap = {
-    0.0: 'green',
-    0.2: 'yellow',
-    0.4: 'orange',
-    0.6: 'red',
-    0.8: 'darkred',
-    1.0: 'black'
-    }  
+def create_map():
+    # Definisci la mappa di Folium
+    m = folium.Map(location=[41.9028, 12.4964], zoom_start=12, tiles='OpenStreetMap')
 
+    # Aggiungi HeatMapLayer limitata ai casi di Roma
+    crime_coordinates = [[crime[1], crime[2]] for crime in initial_crimes]
+    HeatMap(crime_coordinates, radius=50).add_to(m)
 
-      # Imposta min_opacity per mantenere la heatmap costante durante lo zoom (edited)
-    min_opacity = 0.5
-
-    # Imposta il blur per una transizione piu graduale tra i punti della heatmap
-    blur = 20
-
-    # Aggiungi HeatMapLayer con le coordinate dei crimini e altri parametri
-    heatmap = HeatMap(crime_coordinates, radius=50).add_to(m)
-
-
-
-    # Funzione per aggiornare dinamicamente il radius in base al livello di zoom
-    update_radius_script = """
-    <script>
-        function update_radius() {
-           var zoom = map.getZoom();
-            heatmapLayer.setOptions({radius: zoom * 2});
-        }
-
-        var map = document.querySelector('.folium-map');
-        var heatmapLayer = map._layers[Object.keys(map._layers)[1]];
-
-        map.addEventListener('zoomend', update_radius);
-        update_radius();
-    </script>
-    """
-
-    m.get_root().html.add_child(folium.Element(update_radius_script))
-
-    import os
-    print(os.getcwd())
-    
-    
     # Aggiunta dei pin sulla mappa di Folium
-    for address, lat, lon, crime_type in crimes:
+    for address, lat, lon, crime_type in initial_crimes:
         folium.Marker([lat, lon], popup=f"{address} - {crime_type}").add_to(m)
 
-    
     # Salva la mappa di Folium come HTML
     m.save('static2/map.html')
 
+    # Restituisci l'oggetto mappa
+    return m
 
-    # Salva la mappa di Folium come HTML con un parametro casuale
-    m.save(f'static2/map_{random_number}.html')
+def update_map():
+    # Inizializza la mappa
+    m = create_map()
 
+    # Se esiste un file CSV caricato, aggiorna la mappa con i nuovi dati
+    csv_file_path = os.path.join(app.config['UPLOAD_FOLDER'], 'uploaded_points.csv')
+    print("Percorso del file CSV:", csv_file_path)  # Stampare il percorso del file CSV per debug
+    if os.path.exists(csv_file_path):
+        with open(csv_file_path, 'r') as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            csv_data = list(csv_reader)  # Leggi i dati dal file CSV e memorizzali in una lista
+
+            # Aggiungi l'heatmap solo se ci sono nuovi dati
+            if csv_data:
+                # Aggiungi i nuovi punti sulla mappa
+                for row in csv_data:
+                    lat = float(row['Latitudine'])
+                    lon = float(row['Longitudine'])
+                    address = row['Indirizzo']
+                    crime_type = row['Tipo Crimine']
+                    folium.Marker([lat, lon], popup=f"{address} - {crime_type}").add_to(m)
+
+                # Aggiungi l'heatmap con i nuovi dati
+                HeatMap([[float(row['Latitudine']), float(row['Longitudine'])] for row in csv_data], radius=50).add_to(m)
+
+    # Salva la mappa di Folium aggiornata come HTML
+    m.save('static2/map.html')
+
+@app.route('/')
+def home():
+    update_map()
     # Rendi la mappa disponibile nella pagina HTML
     return render_template('index.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
+@app.route('/reset', methods=['POST'])
+def reset_map():
+    # Cancella il file CSV e aggiorna la mappa
+    csv_file_path = os.path.join(app.config['UPLOAD_FOLDER'], 'uploaded_points.csv')
+    if os.path.exists(csv_file_path):
+        os.remove(csv_file_path)
+    update_map()
+    return redirect(url_for('home'))
 
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        # Controlla se il file è stato inviato
+        if 'file' not in request.files:
+            flash('Nessun file selezionato')
+            return redirect(request.url)
+        file = request.files['file']
+        # Controlla se il nome del file è vuoto
+        if file.filename == '':
+            flash('Nessun file selezionato')
+            return redirect(request.url)
+        # Se il file è stato inviato e ha un nome, leggilo e aggiungi i nuovi punti alla mappa
+        if file:
+            filename = secure_filename(file.filename)
+            # Salva il file nella cartella temporanea
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], 'uploaded_points.csv')
+            file.save(file_path)
+            print("File CSV caricato con successo:", file_path)  # Stampare il percorso del file CSV caricato per debug
+            flash('File caricato con successo')
+            update_map()  # Aggiorna la mappa con i nuovi punti e l'heatmap
+            return redirect(url_for('home'))  # Reindirizza alla visualizzazione principale
+    return render_template('upload.html')
+
+if __name__ == '__main__':
+    create_map()  # Creazione della mappa iniziale all'avvio dell'applicazione
+    app.run(debug=True)
